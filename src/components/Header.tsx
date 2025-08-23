@@ -59,15 +59,15 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo Section */}
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-2 md:space-x-4">
             <img 
               src="/lovable-uploads/b15efb0f-af9f-4c8c-8c9e-d5e3d1f1df6b.png" 
               alt="Pigeon Armenian Restaurant Logo" 
-              className="h-14 w-14"
+              className="h-10 w-10 md:h-14 md:w-14 transition-transform duration-300 hover:scale-110"
             />
-            <div className="hidden md:block">
-              <h1 className="text-2xl font-light text-foreground font-montserrat">
-                Pigeon Armenian Restaurant
+            <div className="hidden sm:block">
+              <h1 className="text-sm md:text-xl font-light text-foreground font-montserrat">
+                Pigeon Armenian Restaurante
               </h1>
             </div>
           </div>
@@ -118,31 +118,34 @@ const Header = () => {
         </div>
 
         {/* Mobile Navigation */}
-        <div className={`lg:hidden transition-all duration-300 ease-in-out ${isMenuOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'} overflow-hidden`}>
-          <nav className="py-4 space-y-4">
+        <div className={`lg:hidden transition-all duration-300 ease-in-out ${isMenuOpen ? 'max-h-80 opacity-100' : 'max-h-0 opacity-0'} overflow-hidden`}>
+          <nav className="py-4 space-y-2">
             {navItems.map((item) => (
               <button
                 key={item.name}
                 onClick={() => scrollToSection(item.href)}
-                className={`block nav-link font-medium py-2 w-full text-left transition-colors duration-300 ${
+                className={`block nav-link font-medium py-3 w-full text-left transition-colors duration-300 rounded-lg ${
                   activeSection === item.href.substring(1)
-                    ? 'text-orangered font-semibold nav-link-active'
-                    : 'text-foreground hover:text-[hsl(var(--nav-hover))]'
+                    ? 'text-orangered font-semibold nav-link-active bg-orangered/5'
+                    : 'text-foreground hover:text-orangered hover:bg-muted/50'
                 }`}
               >
-                {item.name}
+                <span className="px-4">{item.name}</span>
               </button>
             ))}
-            <Button className="btn-primary w-full sm:hidden mt-4"
-              onClick={() => {
-                const element = document.getElementById('booking');
-                if (element) {
-                  element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-              }}
-            >
-              Book a Table
-            </Button>
+            <div className="pt-4 pb-2">
+              <Button className="btn-primary w-full sm:hidden"
+                onClick={() => {
+                  const element = document.getElementById('booking');
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    setIsMenuOpen(false);
+                  }
+                }}
+              >
+                Book a Table
+              </Button>
+            </div>
           </nav>
         </div>
       </div>

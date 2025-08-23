@@ -31,21 +31,21 @@ const Footer = () => {
     <footer className="bg-orangered relative overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
         {/* Main Footer Content */}
-        <div className="py-16">
-          <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-12">
+        <div className="py-10 sm:py-16">
+          <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-8 sm:gap-12">
             {/* Restaurant Info */}
             <div className="space-y-6">
               <div className="flex items-center space-x-3">
                 <img 
                   src="/lovable-uploads/754e1eea-9a30-4b0b-ba6a-0c42f1f3a3f0.png" 
                   alt="Armenian Restaurant Logo" 
-                  className="h-12 w-12 object-contain"
+                  className="h-10 w-10 sm:h-12 sm:w-12 object-contain"
                 />
                 <div>
-                  <h3 className="text-xl font-medium text-white font-montserrat">
+                  <h3 className="text-lg sm:text-xl font-medium text-white font-montserrat">
                     Pigeon Armenian
                   </h3>
-                  <p className="text-sm text-white/80 font-light">
+                  <p className="text-xs sm:text-sm text-white/80 font-light">
                     Restaurant
                   </p>
                 </div>
@@ -68,8 +68,8 @@ const Footer = () => {
             </div>
 
             {/* Quick Links */}
-            <div className="space-y-6">
-              <h3 className="text-xl font-medium text-white font-montserrat">
+            <div className="space-y-4 sm:space-y-6">
+              <h3 className="text-lg sm:text-xl font-medium text-white font-montserrat">
                 Quick Links
               </h3>
               <ul className="space-y-3">
@@ -87,8 +87,8 @@ const Footer = () => {
             </div>
 
             {/* Contact Info */}
-            <div className="space-y-6">
-              <h3 className="text-xl font-medium text-white font-montserrat">
+            <div className="space-y-4 sm:space-y-6">
+              <h3 className="text-lg sm:text-xl font-medium text-white font-montserrat">
                 Contact Info
               </h3>
               <div className="space-y-4">
@@ -124,8 +124,8 @@ const Footer = () => {
             </div>
 
             {/* Opening Hours */}
-            <div className="space-y-6">
-              <h3 className="text-xl font-medium text-white font-montserrat">
+            <div className="space-y-4 sm:space-y-6">
+              <h3 className="text-lg sm:text-xl font-medium text-white font-montserrat">
                 Opening Hours
               </h3>
               <div className="space-y-3">
@@ -153,14 +153,14 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-white/20 py-8">
+        <div className="border-t border-white/20 py-6 sm:py-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className="flex items-center gap-6">
-              <p className="text-white/90 font-light text-sm">
+            <div className="flex items-center">
+              <p className="text-white/90 font-light text-xs sm:text-sm text-center md:text-left">
                 © {currentYear} Pigeon Armenian Restaurant. All rights reserved.
               </p>
             </div>
-            <div className="flex items-center gap-6 text-sm">
+            <div className="flex items-center gap-4 sm:gap-6 text-xs sm:text-sm">
               <button className="text-white/90 hover:text-white transition-colors duration-300 font-light">
                 Privacy Policy
               </button>

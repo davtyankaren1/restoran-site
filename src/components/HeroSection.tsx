@@ -55,18 +55,18 @@ const HeroSection = () => {
       {/* Content Overlay */}
       <div className="relative z-10 flex items-center justify-center h-full">
         <div className="text-center text-white px-4 max-w-4xl mx-auto">
-          <h1 className="text-5xl md:text-7xl font-light mb-8 font-montserrat tracking-tight">
+          <h1 className="text-3xl sm:text-5xl md:text-7xl font-light mb-4 sm:mb-6 md:mb-8 font-montserrat tracking-tight">
             Bienvenidos a nuestro pequeño rincón armenio
           </h1>
-          <p className="text-xl md:text-2xl mb-12 font-light max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-xl md:text-2xl mb-6 sm:mb-8 md:mb-12 font-light max-w-3xl mx-auto leading-relaxed px-2">
             Experience the authentic flavors of Armenia in an elegant atmosphere where tradition meets modern sophistication.
           </p>
           
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center w-full sm:w-auto">
             <Button 
               size="lg" 
-              className="btn-primary text-lg px-8 py-4 font-semibold"
+              className="btn-primary text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 font-semibold w-full sm:w-auto"
               onClick={() => {
                 const element = document.getElementById('menu');
                 if (element) {
@@ -79,7 +79,7 @@ const HeroSection = () => {
             <Button 
               size="lg" 
               variant="outline"
-              className="text-lg px-8 py-4 font-semibold border-white text-white hover:bg-white hover:text-foreground transition-all duration-300 bg-transparent"
+              className="text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 font-semibold border-white text-white hover:bg-white hover:text-foreground transition-all duration-300 bg-transparent w-full sm:w-auto"
               onClick={() => {
                 const element = document.getElementById('booking');
                 if (element) {
@@ -94,13 +94,13 @@ const HeroSection = () => {
       </div>
 
       {/* Slide Indicators */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
-        <div className="flex space-x-3">
+      <div className="absolute bottom-6 sm:bottom-8 left-1/2 transform -translate-x-1/2 z-20">
+        <div className="flex space-x-4">
           {slides.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentSlide(index)}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${
+              className={`w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${
                 index === currentSlide 
                   ? 'bg-white scale-125' 
                   : 'bg-white/50 hover:bg-white/75'

@@ -80,22 +80,22 @@ const BookingSection = () => {
             <div className="absolute inset-0 backdrop-blur-sm"></div>
           </div>
           
-          <div className="relative z-10 px-8 py-16">
+          <div className="relative z-10 px-4 sm:px-8 py-10 sm:py-16">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <div className="flex justify-center items-center gap-6 mb-6">
-            <div className="w-12 h-0.5 bg-white/80"></div>
+        <div className="text-center mb-10 sm:mb-16">
+          <div className="flex justify-center items-center gap-4 sm:gap-6 mb-4 sm:mb-6">
+            <div className="w-8 sm:w-12 h-0.5 bg-white/80"></div>
             <img 
               src="/lovable-uploads/754e1eea-9a30-4b0b-ba6a-0c42f1f3a3f0.png" 
               alt="Armenian Restaurant Logo" 
-              className="w-16 h-16 object-contain"
+              className="w-12 h-12 sm:w-16 sm:h-16 object-contain"
             />
-            <div className="w-12 h-0.5 bg-white/80"></div>
+            <div className="w-8 sm:w-12 h-0.5 bg-white/80"></div>
           </div>
-          <h2 className="text-5xl font-light text-white mb-6 font-montserrat">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-4 sm:mb-6 font-montserrat">
             Book Your Table
           </h2>
-          <p className="text-xl text-white/90 max-w-2xl mx-auto font-light leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl text-white/90 max-w-2xl mx-auto font-light leading-relaxed px-2">
             Reserve your perfect dining experience with authentic Armenian flavors
           </p>
         </div>
@@ -104,9 +104,9 @@ const BookingSection = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-stretch">
             {/* Calendar Section */}
             <div className="flex flex-col">
-              <div className="bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/20 flex-1 flex flex-col">
-                <h3 className="text-2xl font-light text-white mb-6 font-montserrat flex items-center gap-3">
-                  <CalendarIcon className="text-orangered" size={28} />
+              <div className="bg-white/10 backdrop-blur-md rounded-3xl p-4 sm:p-6 md:p-8 border border-white/20 flex-1 flex flex-col">
+                <h3 className="text-xl sm:text-2xl font-light text-white mb-4 sm:mb-6 font-montserrat flex items-center gap-2 sm:gap-3">
+                  <CalendarIcon className="text-orangered" size={24} />
                   Select Date
                 </h3>
                 <div className="flex-1 flex items-center justify-center">
@@ -116,7 +116,7 @@ const BookingSection = () => {
                       selected={selectedDate}
                       onSelect={setSelectedDate}
                       disabled={(date) => date < new Date()}
-                      className="bg-white/95 backdrop-blur-sm rounded-2xl p-6 border border-white/30 pointer-events-auto w-full"
+                      className="bg-white/95 backdrop-blur-sm rounded-2xl p-2 sm:p-4 md:p-6 border border-white/30 pointer-events-auto w-full"
                       classNames={{
                         months: "space-y-4 w-full",
                         month: "space-y-4 w-full",
@@ -147,11 +147,11 @@ const BookingSection = () => {
 
               {/* Selected Date Display */}
               {selectedDate && (
-                <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 mt-6">
+                <div className="bg-white/10 backdrop-blur-md rounded-2xl p-4 sm:p-6 border border-white/20 mt-4 sm:mt-6">
                   <div className="text-center">
-                    <p className="text-white/80 mb-2">Selected Date</p>
-                    <p className="text-2xl font-light text-white font-montserrat">
-                      {format(selectedDate, 'EEEE, MMMM do, yyyy')}
+                    <p className="text-white/80 mb-1 sm:mb-2 text-sm sm:text-base">Selected Date</p>
+                    <p className="text-lg sm:text-xl md:text-2xl font-light text-white font-montserrat">
+                      {format(selectedDate, 'EEE, MMM do, yyyy')}
                     </p>
                   </div>
                 </div>
@@ -159,13 +159,13 @@ const BookingSection = () => {
             </div>
 
             {/* Booking Form */}
-            <div className="bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/20">
-              <h3 className="text-2xl font-light text-white mb-8 font-montserrat flex items-center gap-3">
-                <Send className="text-orangered" size={28} />
+            <div className="bg-white/10 backdrop-blur-md rounded-3xl p-4 sm:p-6 md:p-8 border border-white/20">
+              <h3 className="text-xl sm:text-2xl font-light text-white mb-4 sm:mb-6 md:mb-8 font-montserrat flex items-center gap-2 sm:gap-3">
+                <Send className="text-orangered" size={24} />
                 Reservation Details
               </h3>
 
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
                 {/* Name & Email Row */}
                 <div className="grid md:grid-cols-2 gap-4">
                   <div className="space-y-2">
@@ -269,13 +269,13 @@ const BookingSection = () => {
                 {/* Submit Button */}
                 <Button
                   type="submit"
-                  className="w-full bg-orangered hover:bg-orangered/90 text-white font-medium py-4 text-lg rounded-xl transition-all duration-300 hover:shadow-xl hover:scale-[1.02]"
+                  className="w-full bg-orangered hover:bg-orangered/90 text-white font-medium py-3 sm:py-4 text-base sm:text-lg rounded-xl transition-all duration-300 hover:shadow-xl hover:scale-[1.02]"
                 >
                   Send Booking Request
                 </Button>
               </form>
 
-              <p className="text-white/70 text-sm mt-6 text-center font-light">
+              <p className="text-white/70 text-xs sm:text-sm mt-4 sm:mt-6 text-center font-light px-2">
                 We'll confirm your reservation within 24 hours via email or phone
               </p>
             </div>

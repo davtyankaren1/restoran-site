@@ -79,43 +79,43 @@ const ContactSection = () => {
     <section className='py-20 bg-background' id='contact'>
       <div className='container mx-auto px-4'>
         {/* Clean Background Container */}
-        <div className='px-8 py-16'>
+        <div className='py-16'>
           {/* Section Header */}
-          <div className='text-center mb-16'>
-            <div className='flex justify-center items-center gap-6 mb-6'>
-              <div className='w-12 h-0.5 bg-border'></div>
+          <div className='text-center mb-6 md:mb-16'>
+            <div className='flex justify-center items-center gap-2 md:gap-6 mb-3 sm:mb-4 md:mb-6'>
+              <div className='w-6 sm:w-8 md:w-12 h-0.5 bg-border'></div>
               <img
                 src='/lovable-uploads/754e1eea-9a30-4b0b-ba6a-0c42f1f3a3f0.png'
                 alt='Armenian Restaurant Logo'
-                className='w-16 h-16 object-contain'
+                className='w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 object-contain hover:scale-110 transition-transform duration-300'
               />
-              <div className='w-12 h-0.5 bg-border'></div>
+              <div className='w-6 sm:w-8 md:w-12 h-0.5 bg-border'></div>
             </div>
-            <h2 className='text-5xl font-light text-foreground mb-6 font-montserrat'>
+            <h2 className='text-2xl sm:text-3xl md:text-5xl font-light text-foreground mb-2 sm:mb-3 md:mb-6 font-montserrat'>
               Contact
             </h2>
-            <p className='text-xl text-muted-foreground max-w-2xl mx-auto font-light leading-relaxed'>
+            <p className='text-sm sm:text-base md:text-xl text-muted-foreground max-w-2xl mx-auto font-light leading-relaxed px-4 md:px-0'>
               Get in touch with us
             </p>
           </div>
 
-          <div className='max-w-6xl mx-auto'>
+          <div className='mx-auto'>
             <div className='grid lg:grid-cols-2 gap-16'>
               {/* Contact Information */}
               <div className='space-y-8'>
                 <div className='space-y-6'>
                   {contactInfo.map((info, index) => (
-                    <div key={index} className='flex items-start gap-4'>
+                    <div key={index} className='flex items-start gap-3 sm:gap-4'>
                       <div className='flex-shrink-0'>
-                        <div className='w-12 h-12 rounded-full bg-orangered/10 flex items-center justify-center'>
-                          <info.icon className='text-orangered' size={20} />
+                        <div className='w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-orangered/10 flex items-center justify-center'>
+                          <info.icon className='text-orangered' size={18} />
                         </div>
                       </div>
-                      <div className='space-y-1'>
-                        <h3 className='text-lg font-medium text-foreground font-montserrat'>
+                      <div className='space-y-0.5 sm:space-y-1'>
+                        <h3 className='text-base sm:text-lg font-medium text-foreground font-montserrat'>
                           {info.title}
                         </h3>
-                        <p className='text-muted-foreground font-light'>
+                        <p className='text-sm sm:text-base text-muted-foreground font-light'>
                           {info.details}
                         </p>
                       </div>
@@ -125,8 +125,8 @@ const ContactSection = () => {
               </div>
 
               {/* Contact Form */}
-              <div className='bg-card rounded-2xl p-8'>
-                <form onSubmit={handleSubmit} className='space-y-6'>
+              <div className='bg-card rounded-2xl p-4 sm:p-5 md:p-8'>
+                <form onSubmit={handleSubmit} className='space-y-4 sm:space-y-6'>
                   <div className='space-y-2'>
                     <Label
                       htmlFor='contact-name'
@@ -187,9 +187,10 @@ const ContactSection = () => {
 
                   <Button
                     type='submit'
-                    className='w-full bg-orangered hover:bg-orangered/90 text-white font-medium py-3 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 font-montserrat hover:shadow-xl hover:scale-[1.02]'
+                    className='w-full bg-orangered hover:bg-orangered/90 text-white font-medium py-2.5 sm:py-3 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 font-montserrat hover:shadow-xl hover:scale-[1.02] text-sm sm:text-base'
                   >
-                    <Send size={18} />
+                    <Send size={16} className="sm:hidden" />
+                    <Send size={18} className="hidden sm:block" />
                     Send Message
                   </Button>
                 </form>
