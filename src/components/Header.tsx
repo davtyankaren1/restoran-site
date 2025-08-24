@@ -1,16 +1,16 @@
-import { useState, useEffect } from 'react';
-import { Button } from '@/components/ui/button';
+import { useState, useEffect } from "react";
+import { Button } from "@/components/ui/button";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState('home');
+  const [activeSection, setActiveSection] = useState("home");
 
   const navItems = [
-    { name: 'Home', href: '#home' },
-    { name: 'Menu', href: '#menu' },
-    { name: 'About', href: '#about' },
-    { name: 'Contact', href: '#contact' },
+    { name: "Home", href: "#home" },
+    { name: "Menu", href: "#menu" },
+    { name: "About", href: "#about" },
+    { name: "Contact", href: "#contact" }
   ];
 
   useEffect(() => {
@@ -19,8 +19,8 @@ const Header = () => {
       setIsScrolled(scrollTop > 50);
 
       // Update active section based on scroll position
-      const sections = ['home', 'menu', 'about', 'contact'];
-      const currentSection = sections.find(section => {
+      const sections = ["home", "menu", "about", "contact"];
+      const currentSection = sections.find((section) => {
         const element = document.getElementById(section);
         if (element) {
           const rect = element.getBoundingClientRect();
@@ -28,60 +28,62 @@ const Header = () => {
         }
         return false;
       });
-      
+
       if (currentSection) {
         setActiveSection(currentSection);
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const scrollToSection = (href: string) => {
     const targetId = href.substring(1);
     const element = document.getElementById(targetId);
     if (element) {
-      element.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'start'
+      element.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
       });
     }
     setIsMenuOpen(false);
   };
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 border-b border-border shadow-sm transition-all duration-300 ${
-      isScrolled 
-        ? 'bg-background/80 backdrop-blur-md' 
-        : 'bg-background/95 backdrop-blur-sm'
-    }`}>
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-20">
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 border-b border-border shadow-sm transition-all duration-300 ${
+        isScrolled
+          ? "bg-background/80 backdrop-blur-md"
+          : "bg-background/95 backdrop-blur-sm"
+      }`}
+    >
+      <div className='container mx-auto px-4'>
+        <div className='flex items-center justify-between h-20'>
           {/* Logo Section */}
-          <div className="flex items-center space-x-2 md:space-x-4">
-            <img 
-              src="/lovable-uploads/b15efb0f-af9f-4c8c-8c9e-d5e3d1f1df6b.png" 
-              alt="Pigeon Armenian Restaurant Logo" 
-              className="h-10 w-10 md:h-14 md:w-14 transition-transform duration-300 hover:scale-110"
+          <div className='flex items-center space-x-2 md:space-x-4'>
+            <img
+              src='/lovable-uploads/b15efb0f-af9f-4c8c-8c9e-d5e3d1f1df6b.png'
+              alt='Pigeon Armenian Restaurant Logo'
+              className='h-10 w-10 md:h-14 md:w-14 transition-transform duration-300'
             />
-            <div className="hidden sm:block">
-              <h1 className="text-sm md:text-xl font-light text-foreground font-montserrat">
+            <div className=''>
+              <h1 className='text-sm md:text-xl text-foreground font-montserrat'>
                 Pigeon Armenian Restaurante
               </h1>
             </div>
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-8">
+          <nav className='hidden lg:flex items-center space-x-8'>
             {navItems.map((item) => (
               <button
                 key={item.name}
                 onClick={() => scrollToSection(item.href)}
                 className={`nav-link font-medium transition-colors duration-300 ${
                   activeSection === item.href.substring(1)
-                    ? 'text-orangered font-semibold nav-link-active'
-                    : 'text-foreground hover:text-[hsl(var(--nav-hover))]'
+                    ? "text-orangered font-semibold nav-link-active"
+                    : "text-foreground hover:text-[hsl(var(--nav-hover))]"
                 }`}
               >
                 {item.name}
@@ -90,55 +92,79 @@ const Header = () => {
           </nav>
 
           {/* CTA Button */}
-          <div className="flex items-center space-x-4">
-            <Button className="btn-primary hidden sm:inline-flex"
+          <div className='flex items-center space-x-4'>
+            <Button
+              className='btn-primary hidden sm:inline-flex'
               onClick={() => {
-                const element = document.getElementById('booking');
+                const element = document.getElementById("booking");
                 if (element) {
-                  element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  element.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                  });
                 }
               }}
             >
               Book a Table
             </Button>
-            
+
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="lg:hidden p-2 rounded-md hover:bg-muted transition-colors"
-              aria-label="Toggle menu"
+              className='lg:hidden p-2 rounded-md hover:bg-muted transition-colors'
+              aria-label='Toggle menu'
             >
-              <div className="w-6 h-6 flex flex-col justify-center items-center">
-                <span className={`bg-foreground block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm ${isMenuOpen ? 'rotate-45 translate-y-1' : '-translate-y-0.5'}`}></span>
-                <span className={`bg-foreground block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm my-0.5 ${isMenuOpen ? 'opacity-0' : 'opacity-100'}`}></span>
-                <span className={`bg-foreground block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm ${isMenuOpen ? '-rotate-45 -translate-y-1' : 'translate-y-0.5'}`}></span>
+              <div className='w-6 h-6 flex flex-col justify-center items-center'>
+                <span
+                  className={`bg-foreground block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm ${
+                    isMenuOpen ? "rotate-45 translate-y-1" : "-translate-y-0.5"
+                  }`}
+                ></span>
+                <span
+                  className={`bg-foreground block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm my-0.5 ${
+                    isMenuOpen ? "opacity-0" : "opacity-100"
+                  }`}
+                ></span>
+                <span
+                  className={`bg-foreground block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm ${
+                    isMenuOpen ? "-rotate-45 -translate-y-1" : "translate-y-0.5"
+                  }`}
+                ></span>
               </div>
             </button>
           </div>
         </div>
 
         {/* Mobile Navigation */}
-        <div className={`lg:hidden transition-all duration-300 ease-in-out ${isMenuOpen ? 'max-h-80 opacity-100' : 'max-h-0 opacity-0'} overflow-hidden`}>
-          <nav className="py-4 space-y-2">
+        <div
+          className={`lg:hidden transition-all duration-300 ease-in-out ${
+            isMenuOpen ? "max-h-80 opacity-100" : "max-h-0 opacity-0"
+          } overflow-hidden`}
+        >
+          <nav className='py-4 space-y-2'>
             {navItems.map((item) => (
               <button
                 key={item.name}
                 onClick={() => scrollToSection(item.href)}
                 className={`block nav-link font-medium py-3 w-full text-left transition-colors duration-300 rounded-lg ${
                   activeSection === item.href.substring(1)
-                    ? 'text-orangered font-semibold nav-link-active bg-orangered/5'
-                    : 'text-foreground hover:text-orangered hover:bg-muted/50'
+                    ? "text-orangered font-semibold nav-link-active bg-orangered/5"
+                    : "text-foreground hover:text-orangered hover:bg-muted/50"
                 }`}
               >
-                <span className="px-4">{item.name}</span>
+                <span className='px-4'>{item.name}</span>
               </button>
             ))}
-            <div className="pt-4 pb-2">
-              <Button className="btn-primary w-full sm:hidden"
+            <div className='pt-4 pb-2'>
+              <Button
+                className='btn-primary w-full sm:hidden'
                 onClick={() => {
-                  const element = document.getElementById('booking');
+                  const element = document.getElementById("booking");
                   if (element) {
-                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    element.scrollIntoView({
+                      behavior: "smooth",
+                      block: "start"
+                    });
                     setIsMenuOpen(false);
                   }
                 }}

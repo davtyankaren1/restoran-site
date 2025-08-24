@@ -149,10 +149,10 @@ const MenuSection = () => {
         {items.map((item) => (
           <div key={item.id} className='relative group'>
             {/* Glassmorphism Background */}
-            <div className='absolute inset-0 bg-orangered/10 backdrop-blur-md rounded-2xl border border-orangered/20 group-hover:bg-orangered/15 group-hover:border-orangered/30 transition-all duration-300'></div>
+            <div className='absolute inset-0 bg-orangered/5 backdrop-blur-md rounded-2xl border border-orangered/20 group-hover:bg-orangered/15 group-hover:border-orangered/30 transition-all duration-300'></div>
 
             {/* Content */}
-            <div className='relative flex flex-col sm:flex-row items-center sm:items-start sm:justify-between p-5 md:p-8 rounded-2xl group-hover:scale-[1.02] transition-all duration-300'>
+            <div className='relative flex flex-col sm:flex-row items-center sm:items-start sm:justify-between p-5 md:p-8 rounded-2xl  transition-all duration-200'>
               <div className='flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-6 w-full'>
                 {/* Circular Image with Glow */}
                 <div className='flex-shrink-0 relative mb-3 sm:mb-0'>
@@ -235,10 +235,11 @@ const MenuSection = () => {
             <button
               key={category.id}
               onClick={() => setActiveCategory(category.id)}
-              className={`px-3 sm:px-4 md:px-6 py-2 md:py-3 rounded-full font-montserrat text-sm sm:text-base transition-all duration-300 ${activeCategory === category.id
-                ? 'bg-orangered text-white shadow-lg shadow-orangered/30'
-                : 'bg-card hover:bg-orangered/10 text-foreground'
-                }`}
+              className={`px-3 sm:px-4 md:px-6 py-2 md:py-3 rounded-full font-montserrat text-sm sm:text-base transition-all duration-300 ${
+                activeCategory === category.id
+                  ? "bg-orangered text-white shadow-lg shadow-orangered/30"
+                  : "bg-card hover:bg-orangered/10 text-foreground"
+              }`}
             >
               {category.name}
             </button>

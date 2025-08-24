@@ -12,6 +12,10 @@ All colors MUST be HSL.
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
 
+    --armenian-red: 186, 12, 47; /* RGB for Armenian Red */
+    --armenian-orange: 255, 102, 0; /* RGB for Armenian Orange */
+    --armenian-blue: 0, 56, 168; /* RGB for Armenian Blue */
+
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
 
@@ -49,15 +53,24 @@ All colors MUST be HSL.
     --hero-overlay: var(--orangered-accent);
     --nav-hover: var(--armenian-orange);
     --button-primary: var(--orangered-accent);
-    
-    /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(var(--armenian-red) / 0.7), hsl(var(--orangered-accent) / 0.7));
-    --gradient-elegant: linear-gradient(135deg, hsl(var(--armenian-blue) / 0.1), hsl(var(--armenian-orange) / 0.1));
-    
+
+    --gradient-hero: linear-gradient(
+      135deg,
+      rgba(186, 12, 47, 0.8),
+      rgba(0, 56, 168, 0.4),
+      rgba(255, 102, 0, 0.8)
+    );
+
+    --gradient-elegant: linear-gradient(
+      135deg,
+      hsl(var(--armenian-blue) / 0.1),
+      hsl(var(--armenian-orange) / 0.1)
+    );
+
     /* Shadows */
     --shadow-elegant: 0 20px 40px -10px hsl(var(--armenian-red) / 0.15);
     --shadow-glow: 0 0 30px hsl(var(--orangered-accent) / 0.3);
-    
+
     /* Animations */
     --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-elegant: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
@@ -126,56 +139,56 @@ All colors MUST be HSL.
   .nav-link {
     @apply relative inline-block py-2 px-4 transition-colors duration-300;
   }
-  
+
   .nav-link::before {
     @apply content-[''] absolute bottom-0 left-1/2 w-0 h-0.5 bg-[hsl(var(--nav-hover))] transition-all duration-300 origin-center;
     transform: translateX(-50%);
   }
-  
+
   .nav-link:hover::before {
     @apply w-full;
   }
-  
+
   /* Active Navigation Item */
   .nav-link-active::before {
     @apply w-full bg-[hsl(var(--orangered-accent))];
     height: 2px;
   }
-  
+
   /* Button Variants */
   .btn-primary {
     @apply bg-[hsl(var(--button-primary))] text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:shadow-[var(--shadow-glow)] hover:scale-105;
   }
-  
+
   /* Hero Overlay */
   .hero-overlay {
     background: var(--gradient-hero);
   }
-  
+
   /* Custom Scrollbar */
   ::-webkit-scrollbar {
     width: 8px;
   }
-  
+
   ::-webkit-scrollbar-track {
     background: hsl(var(--muted));
   }
-  
+
   ::-webkit-scrollbar-thumb {
     background: hsl(var(--orangered-accent));
     border-radius: 4px;
   }
-  
+
   ::-webkit-scrollbar-thumb:hover {
     background: hsl(var(--armenian-red));
   }
-  
+
   /* Firefox scrollbar */
   html {
     scrollbar-width: thin;
     scrollbar-color: hsl(var(--orangered-accent)) hsl(var(--muted));
   }
-  
+
   /* Moving Lights Animation */
   .moving-lights {
     position: absolute;
@@ -186,26 +199,55 @@ All colors MUST be HSL.
     overflow: hidden;
     pointer-events: none;
   }
-  
+
   .light {
     position: absolute;
-    width: 4px;
-    height: 4px;
-    background: rgba(255, 255, 255, 0.8);
+    width: 10px;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.5);
     border-radius: 50%;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
     animation: float 8s infinite ease-in-out;
   }
-  
-  .light:nth-child(1) { animation-delay: 0s; top: 20%; left: 10%; }
-  .light:nth-child(2) { animation-delay: 2s; top: 60%; left: 80%; }
-  .light:nth-child(3) { animation-delay: 4s; top: 80%; left: 30%; }
-  .light:nth-child(4) { animation-delay: 6s; top: 40%; left: 70%; }
-  
+
+  .light:nth-child(1) {
+    animation-delay: 0s;
+    top: 20%;
+    left: 10%;
+  }
+  .light:nth-child(2) {
+    animation-delay: 2s;
+    top: 60%;
+    left: 80%;
+  }
+  .light:nth-child(3) {
+    animation-delay: 4s;
+    top: 80%;
+    left: 30%;
+  }
+  .light:nth-child(4) {
+    animation-delay: 6s;
+    top: 40%;
+    left: 70%;
+  }
+
   @keyframes float {
-    0%, 100% { transform: translateY(0px) translateX(0px); opacity: 0.3; }
-    25% { transform: translateY(-20px) translateX(10px); opacity: 0.8; }
-    50% { transform: translateY(-10px) translateX(-15px); opacity: 1; }
-    75% { transform: translateY(-30px) translateX(5px); opacity: 0.6; }
+    0%,
+    100% {
+      transform: translateY(0px) translateX(0px);
+      opacity: 0.3;
+    }
+    25% {
+      transform: translateY(-20px) translateX(10px);
+      opacity: 0.8;
+    }
+    50% {
+      transform: translateY(-10px) translateX(-15px);
+      opacity: 1;
+    }
+    75% {
+      transform: translateY(-30px) translateX(5px);
+      opacity: 0.6;
+    }
   }
 }

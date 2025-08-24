@@ -76,10 +76,10 @@ const ContactSection = () => {
   ];
 
   return (
-    <section className='py-20 bg-background' id='contact'>
+    <section className='py-10 bg-background' id='contact'>
       <div className='container mx-auto px-4'>
         {/* Clean Background Container */}
-        <div className='py-16'>
+        <div className='py-12'>
           {/* Section Header */}
           <div className='text-center mb-6 md:mb-16'>
             <div className='flex justify-center items-center gap-2 md:gap-6 mb-3 sm:mb-4 md:mb-6'>
@@ -103,19 +103,24 @@ const ContactSection = () => {
             <div className='grid lg:grid-cols-2 gap-16'>
               {/* Contact Information */}
               <div className='space-y-8'>
-                <div className='space-y-6'>
+                <div className='grid grid-cols-1 sm:grid-cols-2 gap-8'>
                   {contactInfo.map((info, index) => (
-                    <div key={index} className='flex items-start gap-3 sm:gap-4'>
+                    <div
+                      key={index}
+                      className='flex items-start gap-4 p-6 bg-card rounded-xl border border-orangered/20 transition-all duration-300'
+
+                      // className='flex items-start gap-4 p-6 bg-card rounded-xl shadow-md transition-all duration-300'
+                    >
                       <div className='flex-shrink-0'>
-                        <div className='w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-orangered/10 flex items-center justify-center'>
-                          <info.icon className='text-orangered' size={18} />
+                        <div className='w-12 h-12 rounded-full bg-orangered/10 flex items-center justify-center'>
+                          <info.icon className='text-orangered' size={24} />
                         </div>
                       </div>
-                      <div className='space-y-0.5 sm:space-y-1'>
-                        <h3 className='text-base sm:text-lg font-medium text-foreground font-montserrat'>
+                      <div className='space-y-1'>
+                        <h3 className='text-lg font-medium text-foreground font-montserrat'>
                           {info.title}
                         </h3>
-                        <p className='text-sm sm:text-base text-muted-foreground font-light'>
+                        <p className='text-sm text-muted-foreground'>
                           {info.details}
                         </p>
                       </div>
@@ -124,46 +129,48 @@ const ContactSection = () => {
                 </div>
               </div>
 
-              {/* Contact Form */}
-              <div className='bg-card rounded-2xl p-4 sm:p-5 md:p-8'>
-                <form onSubmit={handleSubmit} className='space-y-4 sm:space-y-6'>
-                  <div className='space-y-2'>
-                    <Label
-                      htmlFor='contact-name'
-                      className='text-foreground font-light font-montserrat'
-                    >
-                      Name
-                    </Label>
-                    <Input
-                      id='contact-name'
-                      value={formData.name}
-                      onChange={(e) =>
-                        handleInputChange("name", e.target.value)
-                      }
-                      className='h-12 border-border focus:border-orangered focus:ring-orangered/20'
-                      placeholder='Your name'
-                      required
-                    />
-                  </div>
+              {/* Contact Form (Horizontal Layout) */}
+              <div className='bg-card '>
+                <form onSubmit={handleSubmit} className='space-y-8'>
+                  <div className='flex gap-8'>
+                    <div className='flex-1 space-y-2'>
+                      <Label
+                        htmlFor='contact-name'
+                        className='text-foreground font-light font-montserrat'
+                      >
+                        Name
+                      </Label>
+                      <Input
+                        id='contact-name'
+                        value={formData.name}
+                        onChange={(e) =>
+                          handleInputChange("name", e.target.value)
+                        }
+                        className='h-12 border-border focus:border-orangered focus:ring-orangered/20'
+                        placeholder='Your name'
+                        required
+                      />
+                    </div>
 
-                  <div className='space-y-2'>
-                    <Label
-                      htmlFor='contact-email'
-                      className='text-foreground font-light font-montserrat'
-                    >
-                      Email
-                    </Label>
-                    <Input
-                      id='contact-email'
-                      type='email'
-                      value={formData.email}
-                      onChange={(e) =>
-                        handleInputChange("email", e.target.value)
-                      }
-                      className='h-12 border-border focus:border-orangered focus:ring-orangered/20'
-                      placeholder='your@email.com'
-                      required
-                    />
+                    <div className='flex-1 space-y-2'>
+                      <Label
+                        htmlFor='contact-email'
+                        className='text-foreground font-light font-montserrat'
+                      >
+                        Email
+                      </Label>
+                      <Input
+                        id='contact-email'
+                        type='email'
+                        value={formData.email}
+                        onChange={(e) =>
+                          handleInputChange("email", e.target.value)
+                        }
+                        className='h-12 border-border focus:border-orangered focus:ring-orangered/20'
+                        placeholder='your@email.com'
+                        required
+                      />
+                    </div>
                   </div>
 
                   <div className='space-y-2'>
@@ -179,7 +186,7 @@ const ContactSection = () => {
                       onChange={(e) =>
                         handleInputChange("message", e.target.value)
                       }
-                      className='min-h-32 border-border focus:border-orangered focus:ring-orangered/20 resize-none'
+                      className='min-h-40 border-border focus:border-orangered focus:ring-orangered/20 resize-none'
                       placeholder='Your message...'
                       required
                     />
@@ -187,10 +194,9 @@ const ContactSection = () => {
 
                   <Button
                     type='submit'
-                    className='w-full bg-orangered hover:bg-orangered/90 text-white font-medium py-2.5 sm:py-3 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 font-montserrat hover:shadow-xl hover:scale-[1.02] text-sm sm:text-base'
+                    className='w-full bg-orangered hover:bg-orangered/90 text-white font-medium py-3 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 font-montserrat'
                   >
-                    <Send size={16} className="sm:hidden" />
-                    <Send size={18} className="hidden sm:block" />
+                    <Send size={18} />
                     Send Message
                   </Button>
                 </form>

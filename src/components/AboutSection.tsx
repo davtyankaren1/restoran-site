@@ -38,7 +38,6 @@ const AboutSection = () => {
       <div className='container mx-auto px-4 relative z-10'>
         {/* Section Header */}
         <div className='text-center mb-6 md:mb-12'>
-         
           <h2 className='text-3xl md:text-5xl font-light text-foreground mb-3 md:mb-6 font-montserrat'>
             About Our Story
           </h2>
@@ -52,44 +51,37 @@ const AboutSection = () => {
           {/* Left Side - Logo and Text */}
           <div className='space-y-8'>
             {/* Logo with Overlay */}
+
             <div className='relative'>
-              <div className='absolute inset-0 bg-gradient-to-r from-orangered/10 to-transparent rounded-3xl blur-3xl'></div>
-              <div className='relative bg-card/50 backdrop-blur-sm rounded-3xl p-8 md:p-12 border border-orangered/10 flex items-center justify-center'>
-                <div className='relative'>
-                  <img
-                    src='/lovable-uploads/754e1eea-9a30-4b0b-ba6a-0c42f1f3a3f0.png'
-                    alt='Armenian Restaurant Logo'
-                    className='w-36 h-36 md:w-48 md:h-48 object-contain hover:scale-105 transition-transform duration-300'
-                  />
-                  <div className='absolute inset-0 bg-gradient-to-t from-orangered/20 to-transparent rounded-full'></div>
-                </div>
+              <div className='absolute inset-0 bg-[url("https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/2560px-Flag_of_Argentina.svg.png")] bg-cover bg-center backdrop-blur-sm rounded-3xl'></div>
+              <div className='relative bg-card/50 rounded-3xl p-8 md:p-12 border border-orangered/10 flex items-center justify-center'>
+                <img
+                  src='/lovable-uploads/754e1eea-9a30-4b0b-ba6a-0c42f1f3a3f0.png'
+                  alt='Armenian Restaurant Logo'
+                  className='w-36 h-36 md:w-48 md:h-48 object-contain hover:scale-105 transition-transform duration-300'
+                />
               </div>
             </div>
 
             {/* Story Text */}
             <div className='space-y-6'>
               <h3 className='text-2xl md:text-3xl font-light text-foreground font-montserrat'>
-                Bringing Armenia to Your Plate
+                Llevando Armenia a tu Plato
               </h3>
               <div className='space-y-4 text-muted-foreground font-light leading-relaxed'>
                 <p>
-                  Founded with a deep love for Armenian culture and cuisine, our
-                  restaurant is more than just a place to dine – it's a bridge
-                  between the rich traditions of Armenia and the modern culinary
-                  world.
+                  Fundado con un profundo amor por la cultura y la cocina
+                  armenia, nuestro restaurante es más que un lugar para comer:
+                  es un puente entre las ricas tradiciones de Armenia y el mundo
+                  culinario moderno.
                 </p>
                 <p>
-                  Our chefs, trained in the ancient techniques of Armenian
-                  cooking, carefully prepare each dish using time-honored
-                  recipes that have been perfected over centuries. From the
-                  smoky flavors of our grilled meats to the delicate spices in
-                  our vegetarian dishes, every bite tells a story.
-                </p>
-                <p>
-                  We believe that food is the universal language of love, and
-                  through our authentic Armenian cuisine, we invite you to
-                  experience the warmth, hospitality, and rich cultural heritage
-                  that defines our beautiful nation.
+                  Nuestros chefs, capacitados en las antiguas técnicas de la
+                  cocina armenia, preparan cuidadosamente cada plato utilizando
+                  recetas tradicionales que han sido perfeccionadas durante
+                  siglos. Desde los sabores ahumados de nuestras carnes a la
+                  parrilla hasta las especias delicadas en nuestros platos
+                  vegetarianos, cada bocado cuenta una historia.
                 </p>
               </div>
 
@@ -128,16 +120,16 @@ const AboutSection = () => {
           </div>
 
           {/* Right Side - Features */}
-          <div className='space-y-8'>
-            <div className='grid gap-6 md:gap-8'>
+          <div>
+            <div className='grid gap-1 md:gap-2' style={{ marginTop: "-70px" }}>
               {features.map((feature, index) => (
                 <div
                   key={index}
-                  className='group p-5 md:p-8 rounded-2xl bg-card hover:shadow-[var(--shadow-elegant)] transition-all duration-300 border border-orangered/5 hover:border-orangered/20'
+                  className='group p-2 md:p-8 rounded-2xl bg-card hover:shadow-[var(--shadow-elegant)] transition-all duration-300 border  border-orangered/20'
                 >
                   <div className='flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-6'>
                     <div className='flex-shrink-0'>
-                      <div className='w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-orangered/10 flex items-center justify-center group-hover:bg-orangered group-hover:scale-110 transition-all duration-300'>
+                      <div className='w-10 h-10 md:w-16 md:h-16 rounded-2xl bg-orangered/10 flex items-center justify-center group-hover:bg-orangered transition-all duration-300'>
                         <feature.icon
                           className='text-orangered group-hover:text-white transition-colors duration-300'
                           size={24}
