@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import kebabImg from "@/assets/menu/kebab.jpg";
@@ -16,26 +17,26 @@ import coffeeImg from "@/assets/menu/coffee.jpg";
 
 const MenuSection = () => {
   const [activeCategory, setActiveCategory] = useState(1);
+  const { t } = useLanguage();
 
   const categories = [
-    { id: 1, name: "Entrantes" },
-    { id: 2, name: "Platos Principales" },
-    { id: 3, name: "Postres" }
+    { id: 1, name: t('menu.category.appetizers') },
+    { id: 2, name: t('menu.category.main') },
+    { id: 3, name: t('menu.category.desserts') }
   ];
 
   const appetizers = [
     {
       id: 1,
-      name: "Dolma",
-      description:
-        "Hojas de parra rellenas tradicionales con arroz, hierbas y especias",
+      name: t('menu.items.dolma.name'),
+      description: t('menu.items.dolma.description'),
       price: "$12.95",
       image: dolmaImg
     },
     {
       id: 2,
-      name: "Fresh Lavash",
-      description: "Pan plano armenio tradicional caliente servido con hierbas",
+      name: t('menu.items.lavash.name'),
+      description: t('menu.items.lavash.description'),
       price: "$8.95",
       image: lavashImg
     }
@@ -44,15 +45,15 @@ const MenuSection = () => {
   const additionalAppetizers = [
     {
       id: 7,
-      name: "Baba Ganoush",
-      description: "Dip de berenjena ahumada con tahini, ajo y aceite de oliva",
+      name: t('menu.items.babaGanoush.name'),
+      description: t('menu.items.babaGanoush.description'),
       price: "$10.95",
       image: babaGanoushImg
     },
     {
       id: 8,
-      name: "Hummus",
-      description: "Dip cremoso de garbanzos cubierto con pimentón y aceite de oliva",
+      name: t('menu.items.hummus.name'),
+      description: t('menu.items.hummus.description'),
       price: "$9.95",
       image: hummusImg
     }
@@ -61,23 +62,22 @@ const MenuSection = () => {
   const mainCourses = [
     {
       id: 3,
-      name: "Armenian Kebab",
-      description: "Brochetas de cordero y ternera a la parrilla con especias aromáticas",
+      name: t('menu.items.kebab.name'),
+      description: t('menu.items.kebab.description'),
       price: "$24.95",
       image: kebabImg
     },
     {
       id: 4,
-      name: "Khorovats",
-      description: "Parrillada mixta con verduras y carnes marinadas",
+      name: t('menu.items.khorovats.name'),
+      description: t('menu.items.khorovats.description'),
       price: "$28.95",
       image: khorovatsImg
     },
     {
       id: 5,
-      name: "Manti",
-      description:
-        "Empanadillas al vapor rellenas de carne sazonada, servidas con yogur",
+      name: t('menu.items.manti.name'),
+      description: t('menu.items.manti.description'),
       price: "$22.95",
       image: mantiImg
     }
@@ -86,16 +86,15 @@ const MenuSection = () => {
   const additionalMainCourses = [
     {
       id: 9,
-      name: "Lahmacun",
-      description:
-        "Pan plano fino y crujiente cubierto con carne picada especiada y verduras",
+      name: t('menu.items.lahmacun.name'),
+      description: t('menu.items.lahmacun.description'),
       price: "$18.95",
       image: lahmacunImg
     },
     {
       id: 10,
-      name: "Armenian Pilaf",
-      description: "Arroz fragante cocinado con fideos y mantequilla",
+      name: t('menu.items.pilaf.name'),
+      description: t('menu.items.pilaf.description'),
       price: "$14.95",
       image: pilafImg
     }
@@ -104,8 +103,8 @@ const MenuSection = () => {
   const desserts = [
     {
       id: 6,
-      name: "Armenian Baklava",
-      description: "Capas de masa filo con frutos secos y almíbar de miel",
+      name: t('menu.items.baklava.name'),
+      description: t('menu.items.baklava.description'),
       price: "$9.95",
       image: baklavaImg
     }
@@ -114,15 +113,15 @@ const MenuSection = () => {
   const additionalDesserts = [
     {
       id: 11,
-      name: "Gata",
-      description: "Pan dulce armenio tradicional con capas de mantequilla",
+      name: t('menu.items.gata.name'),
+      description: t('menu.items.gata.description'),
       price: "$8.95",
       image: gataImg
     },
     {
       id: 12,
-      name: "Armenian Coffee",
-      description: "Café tradicional intenso servido con delicias armenias",
+      name: t('menu.items.coffee.name'),
+      description: t('menu.items.coffee.description'),
       price: "$6.95",
       image: coffeeImg
     }
@@ -211,8 +210,8 @@ const MenuSection = () => {
             <div className='w-8 md:w-12 h-0.5 bg-orangered'></div>
             <div className='relative'>
               <img
-                src='/lovable-uploads/754e1eea-9a30-4b0b-ba6a-0c42f1f3a3f0.png'
-                alt='Logo del Restaurante Armenio'
+                src='/logo.png'
+                alt={t('header.restaurant')}
                 className='w-16 h-16 md:w-20 md:h-20 object-contain hover:scale-110 transition-transform duration-300'
               />
               <div className='absolute inset-0 bg-orangered/20 rounded-full blur-2xl'></div>
@@ -220,11 +219,10 @@ const MenuSection = () => {
             <div className='w-8 md:w-12 h-0.5 bg-orangered'></div>
           </div>
           <h2 className='text-3xl md:text-5xl font-light text-foreground mb-3 md:mb-6 font-montserrat'>
-            Nuestro Menú
+            {t('menu.title')}
           </h2>
           <p className='text-base md:text-xl text-muted-foreground max-w-2xl mx-auto font-light leading-relaxed px-4 md:px-0'>
-            Descubra auténticos sabores armenios elaborados con recetas tradicionales
-            y los mejores ingredientes
+            {t('menu.description')}
           </p>
         </div>
 
@@ -248,19 +246,19 @@ const MenuSection = () => {
         {/* Menu Items */}
         {activeCategory === 1 && (
           <MenuCategory
-            title='Entrantes'
+            title={t('menu.category.appetizers')}
             items={[...appetizers, ...additionalAppetizers]}
           />
         )}
         {activeCategory === 2 && (
           <MenuCategory
-            title='Platos Principales'
+            title={t('menu.category.main')}
             items={[...mainCourses, ...additionalMainCourses]}
           />
         )}
         {activeCategory === 3 && (
           <MenuCategory
-            title='Postres'
+            title={t('menu.category.desserts')}
             items={[...desserts, ...additionalDesserts]}
           />
         )}

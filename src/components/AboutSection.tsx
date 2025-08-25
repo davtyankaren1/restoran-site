@@ -1,25 +1,25 @@
-import {  Heart, Users, Award } from "lucide-react";
+import { Heart, Users, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const AboutSection = () => {
+  const { t } = useLanguage();
+  
   const features = [
     {
       icon: Heart,
-      title: "Pasión por la Autenticidad",
-      description:
-        "Cada plato está elaborado con amor utilizando recetas armenias tradicionales transmitidas de generación en generación."
+      title: t('about.feature1.title'),
+      description: t('about.feature1.description')
     },
     {
       icon: Users,
-      title: "Ambiente Familiar",
-      description:
-        "Creamos un ambiente cálido y acogedor donde cada invitado se siente como parte de nuestra familia armenia."
+      title: t('about.feature2.title'),
+      description: t('about.feature2.description')
     },
     {
       icon: Award,
-      title: "Calidad Premium",
-      description:
-        "Utilizamos solo los mejores ingredientes para garantizar que cada comida supere sus expectativas."
+      title: t('about.feature3.title'),
+      description: t('about.feature3.description')
     }
   ];
 
@@ -36,14 +36,25 @@ const AboutSection = () => {
       </div>
 
       <div className='container mx-auto px-4 relative z-10'>
-        {/* Section Header */}
+        {/* Section Header with Logo */}
         <div className='text-center mb-6 md:mb-12'>
+          <div className="flex justify-center items-center gap-2 md:gap-6 mb-4 md:mb-6">
+            <div className="w-8 md:w-12 h-0.5 bg-orangered"></div>
+            <div className="relative">
+              <img
+                src="/logo.png"
+                alt={t('header.restaurant')}
+                className="w-16 h-16 md:w-20 md:h-20 object-contain"
+              />
+              <div className="absolute inset-0 bg-orangered/20 rounded-full blur-2xl"></div>
+            </div>
+            <div className="w-8 md:w-12 h-0.5 bg-orangered"></div>
+          </div>
           <h2 className='text-3xl md:text-5xl font-light text-foreground mb-3 md:mb-6 font-montserrat'>
-            Nuestra Historia
+            {t('about.title')}
           </h2>
           <p className='text-base md:text-xl text-muted-foreground max-w-2xl mx-auto font-light leading-relaxed px-4 md:px-0'>
-            Un viaje a través de la herencia armenia, llevando sabores auténticos y
-            cálida hospitalidad a su mesa
+            {t('about.description')}
           </p>
         </div>
 
@@ -53,12 +64,12 @@ const AboutSection = () => {
             {/* Logo with Overlay */}
 
             <div className='relative'>
-              <div className='absolute inset-0 bg-[url("https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/2560px-Flag_of_Argentina.svg.png")] bg-cover bg-center backdrop-blur-sm rounded-3xl'></div>
+              <div className='absolute inset-0 bg-[url("/arg-arm.png")] bg-cover bg-center backdrop-blur-sm rounded-3xl'></div>
               <div className='relative bg-card/50 rounded-3xl p-8 md:p-12 border border-orangered/10 flex items-center justify-center'>
                 <img
-                  src='/lovable-uploads/754e1eea-9a30-4b0b-ba6a-0c42f1f3a3f0.png'
-                  alt='Logo del Restaurante Armenio'
-                  className='w-36 h-36 md:w-48 md:h-48 object-contain hover:scale-105 transition-transform duration-300'
+                  src='/logo.png'
+                  alt={t('header.restaurant')}
+                  className='w-36 h-36 md:w-48 md:h-48 object-contain'
                 />
               </div>
             </div>
@@ -66,22 +77,14 @@ const AboutSection = () => {
             {/* Story Text */}
             <div className='space-y-6'>
               <h3 className='text-2xl md:text-3xl font-light text-foreground font-montserrat'>
-                Llevando Armenia a tu Plato
+                {t('about.subtitle')}
               </h3>
               <div className='space-y-4 text-muted-foreground font-light leading-relaxed'>
                 <p>
-                  Fundado con un profundo amor por la cultura y la cocina
-                  armenia, nuestro restaurante es más que un lugar para comer:
-                  es un puente entre las ricas tradiciones de Armenia y el mundo
-                  culinario moderno.
+                  {t('about.paragraph1')}
                 </p>
                 <p>
-                  Nuestros chefs, capacitados en las antiguas técnicas de la
-                  cocina armenia, preparan cuidadosamente cada plato utilizando
-                  recetas tradicionales que han sido perfeccionadas durante
-                  siglos. Desde los sabores ahumados de nuestras carnes a la
-                  parrilla hasta las especias delicadas en nuestros platos
-                  vegetarianos, cada bocado cuenta una historia.
+                  {t('about.paragraph2')}
                 </p>
               </div>
 
@@ -98,7 +101,7 @@ const AboutSection = () => {
                     }
                   }}
                 >
-                  Descubrir Nuestro Menú
+                  {t('about.button.menu')}
                 </Button>
                 <Button
                   variant='outline'
@@ -113,7 +116,7 @@ const AboutSection = () => {
                     }
                   }}
                 >
-                  Reservar Su Mesa
+                  {t('about.button.book')}
                 </Button>
               </div>
             </div>
@@ -156,7 +159,7 @@ const AboutSection = () => {
                   15+
                 </div>
                 <div className='text-xs md:text-sm text-muted-foreground font-light'>
-                  Años de Experiencia
+                  {t('about.stats.experience')}
                 </div>
               </div>
               <div className='text-center p-2 md:p-6 rounded-2xl bg-gradient-to-b from-orangered/5 to-transparent'>
@@ -164,7 +167,7 @@ const AboutSection = () => {
                   50+
                 </div>
                 <div className='text-xs md:text-sm text-muted-foreground font-light'>
-                  Recetas Tradicionales
+                  {t('about.stats.recipes')}
                 </div>
               </div>
               <div className='text-center p-2 md:p-6 rounded-2xl bg-gradient-to-b from-orangered/5 to-transparent'>
@@ -172,7 +175,7 @@ const AboutSection = () => {
                   1000+
                 </div>
                 <div className='text-xs md:text-sm text-muted-foreground font-light'>
-                  Clientes Satisfechos
+                  {t('about.stats.customers')}
                 </div>
               </div>
             </div>

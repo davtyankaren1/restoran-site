@@ -157,7 +157,7 @@ All colors MUST be HSL.
 
   /* Button Variants */
   .btn-primary {
-    @apply bg-[hsl(var(--button-primary))] text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:shadow-[var(--shadow-glow)] hover:scale-105;
+    @apply bg-[hsl(var(--button-primary))] text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:shadow-[var(--shadow-glow)];
   }
 
   /* Hero Overlay */

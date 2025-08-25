@@ -3,14 +3,16 @@ import { Button } from "@/components/ui/button";
 import hero1 from "@/assets/hero-1.jpg";
 import hero2 from "@/assets/hero-2.jpg";
 import hero3 from "@/assets/hero-3.jpg";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const HeroSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const { t } = useLanguage();
 
   const slides = [
-    { image: hero1, alt: "Interior del Restaurante Armenio" },
-    { image: hero2, alt: "Cocina Tradicional Armenia" },
-    { image: hero3, alt: "Chef Armenio Cocinando" }
+    { image: hero1, alt: t('hero.slide1.alt') },
+    { image: hero2, alt: t('hero.slide2.alt') },
+    { image: hero3, alt: t('hero.slide3.alt') }
   ];
 
   useEffect(() => {
@@ -68,11 +70,10 @@ const HeroSection = () => {
       <div className='relative z-10 flex items-center justify-center h-full'>
         <div className='text-center text-white px-4 max-w-4xl mx-auto'>
           <h1 className='text-3xl sm:text-5xl md:text-6xl font-bold mb-4 sm:mb-6 md:mb-8 font-montserrat tracking-tight'>
-            Bienvenidos a nuestro pequeño rincón armenio
+            {t('hero.title')}
           </h1>
           <p className='text-base sm:text-xl md:text-2xl mb-6 sm:mb-8 md:mb-12 font-light max-w-3xl mx-auto leading-relaxed px-2'>
-            Experimente los auténticos sabores de Armenia en un ambiente elegante
-            donde la tradición se encuentra con la sofisticación moderna.
+            {t('hero.description')}
           </p>
 
           {/* CTA Buttons */}
@@ -91,7 +92,7 @@ const HeroSection = () => {
                   }
                 }}
               >
-                Ver Menú
+                {t('hero.button.menu')}
               </Button>
             </div>
 
@@ -110,7 +111,7 @@ const HeroSection = () => {
                   }
                 }}
               >
-                Reservar Mesa
+                {t('hero.button.book')}
               </Button>
             </div>
           </div>

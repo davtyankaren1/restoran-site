@@ -1,42 +1,45 @@
 import { useState, useEffect } from "react";
 import { motion, Variants } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 // Import the hero images we already have
 import hero1 from "@/assets/hero-1.jpg";
 import hero2 from "@/assets/hero-2.jpg";
 import hero3 from "@/assets/hero-3.jpg";
 
-// Gallery images - we'll use the existing images for now
-// In a real scenario, you would add more dedicated gallery images
-const galleryImages = [
-  {
-    src: hero1,
-    alt: "Interior del Restaurante Armenio"
-  },
-  {
-    src: hero2,
-    alt: "Cocina Tradicional Armenia"
-  },
-  {
-    src: hero3,
-    alt: "Chef Armenio Cocinando"
-  },
-  {
-    src: hero1,
-    alt: "Decoración Tradicional Armenia"
-  },
-  {
-    src: hero2,
-    alt: "Postres Armenios"
-  },
-  {
-    src: hero3,
-    alt: "Ambiente del Restaurante"
-  }
-];
-
 const GallerySection = () => {
+  const { t } = useLanguage();
+  
+  // Gallery images - we'll use the existing images for now
+  // In a real scenario, you would add more dedicated gallery images
+  const galleryImages = [
+    {
+      src: hero1,
+      alt: t('gallery.image1.alt')
+    },
+    {
+      src: hero2,
+      alt: t('gallery.image2.alt')
+    },
+    {
+      src: hero3,
+      alt: t('gallery.image3.alt')
+    },
+    {
+      src: hero1,
+      alt: t('gallery.image4.alt')
+    },
+    {
+      src: hero2,
+      alt: t('gallery.image5.alt')
+    },
+    {
+      src: hero3,
+      alt: t('gallery.image6.alt')
+    }
+  ];
+
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
 
   // Animation variants for gallery items
@@ -74,8 +77,8 @@ const GallerySection = () => {
         {/* Blurred Logo Background */}
         <div className="absolute inset-0 flex items-center justify-center opacity-5">
           <img 
-            src="/lovable-uploads/754e1eea-9a30-4b0b-ba6a-0c42f1f3a3f0.png" 
-            alt="Fondo del Logo del Restaurante Armenio" 
+            src="/logo.png" 
+            alt={t('gallery.logo.background')} 
             className="w-full h-full object-contain scale-150 blur-md"
           />
         </div>
@@ -88,8 +91,8 @@ const GallerySection = () => {
             <div className="w-8 md:w-12 h-0.5 bg-orangered"></div>
             <div className="relative">
               <img
-                src="/lovable-uploads/754e1eea-9a30-4b0b-ba6a-0c42f1f3a3f0.png"
-                alt="Logo del Restaurante Armenio"
+                src="/logo.png"
+                alt={t('header.restaurant')}
                 className="w-16 h-16 md:w-20 md:h-20 object-contain hover:scale-110 transition-transform duration-300"
               />
               <div className="absolute inset-0 bg-orangered/20 rounded-full blur-2xl"></div>
@@ -97,10 +100,10 @@ const GallerySection = () => {
             <div className="w-8 md:w-12 h-0.5 bg-orangered"></div>
           </div>
           <h2 className="text-3xl md:text-5xl font-light text-foreground mb-3 md:mb-6 font-montserrat">
-            Nuestra Galería
+            {t('gallery.title')}
           </h2>
           <p className="text-base md:text-xl text-muted-foreground max-w-2xl mx-auto font-light leading-relaxed px-4 md:px-0">
-            Explore la belleza de la cocina armenia y el ambiente de nuestro restaurante a través de nuestra galería cuidadosamente seleccionada
+            {t('gallery.description')}
           </p>
         </div>
 

@@ -7,15 +7,17 @@ import {
   Instagram,
   Twitter
 } from "lucide-react";
+import { useLanguage } from "../contexts/LanguageContext";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const { t } = useLanguage();
 
   const navigationLinks = [
-    { name: "Inicio", href: "#home" },
-    { name: "Menú", href: "#menu" },
-    { name: "Nosotros", href: "#about" },
-    { name: "Reservar Mesa", href: "#booking" }
+    { name: t('nav.home'), href: "#home" },
+    { name: t('nav.menu'), href: "#menu" },
+    { name: t('nav.about'), href: "#about" },
+    { name: t('nav.book'), href: "#booking" }
   ];
 
   const socialLinks = [
@@ -43,22 +45,21 @@ const Footer = () => {
             <div className='space-y-6'>
               <div className='flex items-center space-x-3'>
                 <img
-                  src='/lovable-uploads/754e1eea-9a30-4b0b-ba6a-0c42f1f3a3f0.png'
-                  alt='Logo del Restaurante Armenio'
+                  src='/logo.png'
+                  alt={t('gallery.logo.background')}
                   className='h-12 w-12 sm:h-14 sm:w-14 object-contain'
                 />
                 <div>
                   <h3 className='text-lg sm:text-xl font-semibold text-white font-montserrat'>
-                    Restaurante Armenio Pigeon
+                    {t('header.restaurant')}
                   </h3>
                   <p className='text-xs sm:text-sm text-white/80 font-light'>
-                    Restaurante
+                    {t('footer.restaurant')}
                   </p>
                 </div>
               </div>
               <p className='text-white/90 font-light leading-relaxed'>
-                Experimente la auténtica cocina armenia en un ambiente elegante
-                donde la tradición se encuentra con la sofisticación moderna.
+                {t('footer.description')}
               </p>
               <div className='flex space-x-4'>
                 {socialLinks.map((social) => (
@@ -77,7 +78,7 @@ const Footer = () => {
             {/* Quick Links */}
             <div className='space-y-4 sm:space-y-6'>
               <h3 className='text-lg sm:text-xl font-semibold text-white font-montserrat'>
-                Enlaces Rápidos
+                {t('footer.quickLinks')}
               </h3>
               <ul className='space-y-3'>
                 {navigationLinks.map((link) => (
@@ -96,18 +97,18 @@ const Footer = () => {
             {/* Contact Info */}
             <div className='space-y-4 sm:space-y-6'>
               <h3 className='text-lg sm:text-xl font-semibold text-white font-montserrat'>
-                Información de Contacto
+                {t('footer.contactInfo')}
               </h3>
               <div className='space-y-4'>
                 <div className='flex items-start gap-3'>
                   <MapPin className='text-white mt-1 flex-shrink-0' size={18} />
                   <div>
                     <p className='text-white/90 font-light'>
-                      123 Calle Armenia
+                      {t('footer.address.line1')}
                       <br />
-                      Distrito Centro
+                      {t('footer.address.line2')}
                       <br />
-                      Ciudad, Estado 12345
+                      {t('footer.address.line3')}
                     </p>
                   </div>
                 </div>
@@ -135,17 +136,17 @@ const Footer = () => {
             {/* Opening Hours */}
             <div className='space-y-4 sm:space-y-6'>
               <h3 className='text-lg sm:text-xl font-semibold text-white font-montserrat'>
-                Horario de Apertura
+                {t('footer.openingHours')}
               </h3>
               <div className='space-y-3'>
                 <div className='flex items-center gap-3 mb-4'>
                   <Clock className='text-white flex-shrink-0' size={18} />
-                  <span className='text-white/90 font-light'>Estamos Abiertos</span>
+                  <span className='text-white/90 font-light'>{t('footer.weAreOpen')}</span>
                 </div>
                 <div className='space-y-2'>
                   <div className='flex justify-between'>
                     <span className='text-white/90 font-light'>
-                      Lunes - Jueves
+                      {t('footer.days.monThurs')}
                     </span>
                     <span className='text-white font-medium'>
                       11:00 - 22:00
@@ -153,14 +154,14 @@ const Footer = () => {
                   </div>
                   <div className='flex justify-between'>
                     <span className='text-white/90 font-light'>
-                      Viernes - Sábado
+                      {t('footer.days.friSat')}
                     </span>
                     <span className='text-white font-medium'>
                       11:00 - 23:00
                     </span>
                   </div>
                   <div className='flex justify-between'>
-                    <span className='text-white/90 font-light'>Domingo</span>
+                    <span className='text-white/90 font-light'>{t('footer.days.sunday')}</span>
                     <span className='text-white font-medium'>
                       12:00 - 21:00
                     </span>
@@ -176,15 +177,15 @@ const Footer = () => {
           <div className='flex flex-col md:flex-row justify-between items-center gap-4'>
             <div className='flex items-center'>
               <p className='text-white/90 font-light text-xs sm:text-sm text-center md:text-left'>
-                © {currentYear} Restaurante Armenio Pigeon. Todos los derechos reservados.
+                {t('footer.copyright').replace('{year}', currentYear.toString())}
               </p>
             </div>
             <div className='flex items-center gap-4 sm:gap-6 text-xs sm:text-sm'>
               <button className='text-white/90 hover:text-white transition-colors duration-300 font-light'>
-                Política de Privacidad
+                {t('footer.privacyPolicy')}
               </button>
               <button className='text-white/90 hover:text-white transition-colors duration-300 font-light'>
-                Términos de Servicio
+                {t('footer.termsOfService')}
               </button>
             </div>
           </div>

@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -13,6 +14,7 @@ const ContactSection = () => {
     message: ""
   });
   const { toast } = useToast();
+  const { t } = useLanguage();
 
   const handleInputChange = (field: string, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
@@ -22,16 +24,16 @@ const ContactSection = () => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) {
       toast({
-        title: "Información Faltante",
-        description: "Por favor complete todos los campos.",
+        title: t('contact.form.error'),
+        description: t('contact.form.error.description'),
         variant: "destructive"
       });
       return;
     }
 
     toast({
-      title: "Mensaje Enviado!",
-      description: "Le responderemos dentro de las próximas 24 horas."
+      title: t('contact.form.success'),
+      description: t('contact.form.success.description')
     });
 
     // Reset form
@@ -45,32 +47,32 @@ const ContactSection = () => {
   const contactInfo = [
     {
       icon: Phone,
-      title: "Llámenos",
+      title: t('contact.call'),
       details: "+1 (234) 567-8900"
     },
     {
       icon: Mail,
-      title: "Envíenos un Correo",
+      title: t('contact.email'),
       details: "info@pigeonarmenian.com"
     },
     {
       icon: MapPin,
-      title: "Visítenos",
+      title: t('contact.visit'),
       details: "123 Calle Armenia, Distrito Centro"
     },
     {
       icon: Phone,
-      title: "WhatsApp",
+      title: t('contact.whatsapp'),
       details: "+1 (234) 567-8900"
     },
     {
       icon: Phone,
-      title: "Viber",
+      title: t('contact.viber'),
       details: "+1 (234) 567-8900"
     },
     {
       icon: Phone,
-      title: "Telegram",
+      title: t('contact.telegram'),
       details: "@pigeonarmenian"
     }
   ];
@@ -85,17 +87,17 @@ const ContactSection = () => {
             <div className='flex justify-center items-center gap-2 md:gap-6 mb-3 sm:mb-4 md:mb-6'>
               <div className='w-6 sm:w-8 md:w-12 h-0.5 bg-border'></div>
               <img
-                src='/lovable-uploads/754e1eea-9a30-4b0b-ba6a-0c42f1f3a3f0.png'
-                alt='Logo del Restaurante Armenio'
+                src='/logo.png'
+                alt={t('gallery.logo.background')}
                 className='w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 object-contain hover:scale-110 transition-transform duration-300'
               />
               <div className='w-6 sm:w-8 md:w-12 h-0.5 bg-border'></div>
             </div>
             <h2 className='text-2xl sm:text-3xl md:text-5xl font-light text-foreground mb-2 sm:mb-3 md:mb-6 font-montserrat'>
-              Contacto
+              {t('contact.title')}
             </h2>
             <p className='text-sm sm:text-base md:text-xl text-muted-foreground max-w-2xl mx-auto font-light leading-relaxed px-4 md:px-0'>
-              Póngase en contacto con nosotros
+              {t('contact.description')}
             </p>
           </div>
 
@@ -138,7 +140,7 @@ const ContactSection = () => {
                         htmlFor='contact-name'
                         className='text-foreground font-light font-montserrat'
                       >
-                        Nombre
+                        {t('contact.form.name')}
                       </Label>
                       <Input
                         id='contact-name'
@@ -147,7 +149,7 @@ const ContactSection = () => {
                           handleInputChange("name", e.target.value)
                         }
                         className='h-12 border-border focus:border-orangered focus:ring-orangered/20'
-                        placeholder='Su nombre'
+                        placeholder={t('contact.form.placeholder.name')}
                         required
                       />
                     </div>
@@ -157,7 +159,7 @@ const ContactSection = () => {
                         htmlFor='contact-email'
                         className='text-foreground font-light font-montserrat'
                       >
-                        Correo Electrónico
+                        {t('contact.form.email')}
                       </Label>
                       <Input
                         id='contact-email'
@@ -167,7 +169,7 @@ const ContactSection = () => {
                           handleInputChange("email", e.target.value)
                         }
                         className='h-12 border-border focus:border-orangered focus:ring-orangered/20'
-                        placeholder='su@correo.com'
+                        placeholder={t('contact.form.placeholder.email')}
                         required
                       />
                     </div>
@@ -178,7 +180,7 @@ const ContactSection = () => {
                       htmlFor='contact-message'
                       className='text-foreground font-light font-montserrat'
                     >
-                      Mensaje
+                      {t('contact.form.message')}
                     </Label>
                     <Textarea
                       id='contact-message'
@@ -187,7 +189,7 @@ const ContactSection = () => {
                         handleInputChange("message", e.target.value)
                       }
                       className='min-h-40 border-border focus:border-orangered focus:ring-orangered/20 resize-none'
-                      placeholder='Su mensaje...'
+                      placeholder={t('contact.form.placeholder.message')}
                       required
                     />
                   </div>
@@ -197,7 +199,7 @@ const ContactSection = () => {
                     className='w-full bg-orangered hover:bg-orangered/90 text-white font-medium py-3 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 font-montserrat'
                   >
                     <Send size={18} />
-                    Enviar Mensaje
+                    {t('contact.form.send')}
                   </Button>
                 </form>
               </div>

@@ -21,6 +21,7 @@ import {
 import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
 import hero2 from "@/assets/hero-2.jpg";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const BookingSection = () => {
   const [selectedDate, setSelectedDate] = useState<Date>();
@@ -33,6 +34,7 @@ const BookingSection = () => {
     message: ""
   });
   const { toast } = useToast();
+  const { t } = useLanguage();
 
   const timeSlots = [
     "12:00 PM",
@@ -51,13 +53,13 @@ const BookingSection = () => {
   ];
 
   const guestOptions = [
-    "1 Invitado",
-    "2 Invitados",
-    "3 Invitados",
-    "4 Invitados",
-    "5 Invitados",
-    "6 Invitados",
-    "7+ Invitados"
+    t('booking.guests.1'),
+    t('booking.guests.2'),
+    t('booking.guests.3'),
+    t('booking.guests.4'),
+    t('booking.guests.5'),
+    t('booking.guests.6'),
+    t('booking.guests.7')
   ];
 
   const handleInputChange = (field: string, value: string) => {
@@ -74,16 +76,16 @@ const BookingSection = () => {
       !formData.guests
     ) {
       toast({
-        title: "Información Faltante",
-        description: "Por favor complete todos los campos requeridos.",
+        title: t('booking.form.error'),
+        description: t('booking.form.error.description'),
         variant: "destructive"
       });
       return;
     }
 
     toast({
-      title: "Solicitud de Reserva Enviada!",
-      description: "Confirmaremos su reserva dentro de las próximas 24 horas."
+      title: t('booking.form.success'),
+      description: t('booking.form.success.description')
     });
 
     // Reset form
@@ -106,7 +108,7 @@ const BookingSection = () => {
           <div className='absolute inset-0'>
             <img
               src={hero2}
-              alt='Interior del Restaurante'
+              alt={t('booking.restaurant.interior')}
               className='w-full h-full object-cover'
             />
 
@@ -119,18 +121,17 @@ const BookingSection = () => {
               <div className='flex justify-center items-center gap-4 sm:gap-6 mb-4 sm:mb-6'>
                 <div className='w-8 sm:w-12 h-0.5 bg-white/80'></div>
                 <img
-                  src='/lovable-uploads/754e1eea-9a30-4b0b-ba6a-0c42f1f3a3f0.png'
-                  alt='Logo del Restaurante Armenio'
+                  src='/logo.png'
+                  alt={t('header.restaurant')}
                   className='w-12 h-12 sm:w-16 sm:h-16 object-contain'
                 />
                 <div className='w-8 sm:w-12 h-0.5 bg-white/80'></div>
               </div>
               <h2 className='text-3xl sm:text-4xl md:text-5xl font-light text-white mb-4 sm:mb-6 font-montserrat'>
-                Reserve Su Mesa
+                {t('booking.title')}
               </h2>
               <p className='text-base sm:text-lg md:text-xl text-white/90 max-w-2xl mx-auto font-light leading-relaxed px-2'>
-                Reserve su perfecta experiencia gastronómica con auténticos
-                sabores armenios
+                {t('booking.description')}
               </p>
             </div>
 
@@ -141,7 +142,7 @@ const BookingSection = () => {
                   <div className='bg-white/10 backdrop-blur-md rounded-3xl p-4 sm:p-6 md:p-8 border border-white/20 flex-1 flex flex-col'>
                     <h3 className='text-xl sm:text-2xl font-light text-white mb-4 sm:mb-6 font-montserrat flex items-center gap-2 sm:gap-3'>
                       <CalendarIcon className='text-orangered' size={24} />
-                      Seleccionar Fecha
+                      {t('booking.select.date')}
                     </h3>
                     <div className='flex-1 flex items-center justify-center'>
                       <div className='w-full max-w-none'>
@@ -190,7 +191,7 @@ const BookingSection = () => {
                     <div className='bg-white/10 backdrop-blur-md rounded-2xl p-4 sm:p-6 border border-white/20 mt-4 sm:mt-6'>
                       <div className='text-center'>
                         <p className='text-white/80 mb-1 sm:mb-2 text-sm sm:text-base'>
-                          Fecha Seleccionada
+                          {t('booking.selected.date')}
                         </p>
                         <p className='text-lg sm:text-xl md:text-2xl font-light text-white font-montserrat'>
                           {format(selectedDate, "EEE, MMM do, yyyy")}
@@ -204,7 +205,7 @@ const BookingSection = () => {
                 <div className='bg-white/10 backdrop-blur-md rounded-3xl p-4 sm:p-6 md:p-8 border border-white/20'>
                   <h3 className='text-xl sm:text-2xl font-light text-white mb-4 sm:mb-6 md:mb-8 font-montserrat flex items-center gap-2 sm:gap-3'>
                     <Send className='text-orangered' size={24} />
-                    Detalles de la Reserva
+                    {t('booking.details')}
                   </h3>
 
                   <form
@@ -218,7 +219,7 @@ const BookingSection = () => {
                           htmlFor='name'
                           className='text-white/90 font-light'
                         >
-                          Nombre Completo *
+                          {t('booking.form.name')} *
                         </Label>
                         <Input
                           id='name'
@@ -227,7 +228,7 @@ const BookingSection = () => {
                             handleInputChange("name", e.target.value)
                           }
                           className='bg-white/20 border-white/30 text-white placeholder:text-white/60 focus:border-orangered focus:ring-orangered/20 backdrop-blur-sm'
-                          placeholder='Su nombre completo'
+                          placeholder={t('booking.form.placeholder.name')}
                           required
                         />
                       </div>
@@ -236,7 +237,7 @@ const BookingSection = () => {
                           htmlFor='email'
                           className='text-white/90 font-light'
                         >
-                          Correo Electrónico *
+                          {t('booking.form.email')} *
                         </Label>
                         <Input
                           id='email'
@@ -246,7 +247,7 @@ const BookingSection = () => {
                             handleInputChange("email", e.target.value)
                           }
                           className='bg-white/20 border-white/30 text-white placeholder:text-white/60 focus:border-orangered focus:ring-orangered/20 backdrop-blur-sm'
-                          placeholder='su@correo.com'
+                          placeholder={t('booking.form.placeholder.email')}
                           required
                         />
                       </div>
@@ -258,7 +259,7 @@ const BookingSection = () => {
                         htmlFor='phone'
                         className='text-white/90 font-light'
                       >
-                        Número de Teléfono
+                        {t('booking.form.phone')}
                       </Label>
                       <Input
                         id='phone'
@@ -267,7 +268,7 @@ const BookingSection = () => {
                           handleInputChange("phone", e.target.value)
                         }
                         className='bg-white/20 border-white/30 text-white placeholder:text-white/60 focus:border-orangered focus:ring-orangered/20 backdrop-blur-sm'
-                        placeholder='Su número de teléfono'
+                        placeholder={t('booking.form.placeholder.phone')}
                       />
                     </div>
 
@@ -276,7 +277,7 @@ const BookingSection = () => {
                       <div className='space-y-2'>
                         <Label className='text-white/90 font-light flex items-center gap-2'>
                           <Clock size={16} />
-                          Hora Preferida *
+                          {t('booking.form.time')} *
                         </Label>
                         <Select
                           value={formData.time}
@@ -285,7 +286,7 @@ const BookingSection = () => {
                           }
                         >
                           <SelectTrigger className='bg-white/20 border-white/30 text-white focus:border-orangered focus:ring-orangered/20 backdrop-blur-sm'>
-                            <SelectValue placeholder='Seleccionar hora' />
+                            <SelectValue placeholder={t('booking.form.placeholder.time')} />
                           </SelectTrigger>
                           <SelectContent className='bg-white/95 backdrop-blur-sm border-white/30'>
                             {timeSlots.map((time) => (
@@ -303,7 +304,7 @@ const BookingSection = () => {
                       <div className='space-y-2'>
                         <Label className='text-white/90 font-light flex items-center gap-2'>
                           <Users size={16} />
-                          Número de Invitados *
+                          {t('booking.form.guests')} *
                         </Label>
                         <Select
                           value={formData.guests}
@@ -312,7 +313,7 @@ const BookingSection = () => {
                           }
                         >
                           <SelectTrigger className='bg-white/20 border-white/30 text-white focus:border-orangered focus:ring-orangered/20 backdrop-blur-sm'>
-                            <SelectValue placeholder='Seleccionar invitados' />
+                            <SelectValue placeholder={t('booking.form.placeholder.guests')} />
                           </SelectTrigger>
                           <SelectContent className='bg-white/95 backdrop-blur-sm border-white/30'>
                             {guestOptions.map((option) => (
@@ -335,7 +336,7 @@ const BookingSection = () => {
                         htmlFor='message'
                         className='text-white/90 font-light'
                       >
-                        Peticiones Especiales
+                        {t('booking.form.requests')}
                       </Label>
                       <Textarea
                         id='message'
@@ -344,7 +345,7 @@ const BookingSection = () => {
                           handleInputChange("message", e.target.value)
                         }
                         className='bg-white/20 border-white/30 text-white placeholder:text-white/60 focus:border-orangered focus:ring-orangered/20 backdrop-blur-sm resize-none'
-                        placeholder='Cualquier petición especial o requisito dietético...'
+                        placeholder={t('booking.form.placeholder.requests')}
                         rows={4}
                       />
                     </div>
@@ -354,13 +355,12 @@ const BookingSection = () => {
                       type='submit'
                       className='w-3/4 sm:w-full bg-orangered hover:bg-orangered/90 text-white font-medium py-2 sm:py-4 text-sm sm:text-lg rounded-xl transition-all duration-300 hover:shadow-xl'
                     >
-                      Enviar Solicitud de Reserva
+                      {t('booking.form.submit')}
                     </Button>
                   </form>
 
                   <p className='text-white/70 text-xs sm:text-sm mt-4 sm:mt-6 text-center font-light px-2'>
-                    Confirmaremos su reserva dentro de las próximas 24 horas por correo electrónico o
-                    teléfono
+                    {t('booking.form.confirmation')}
                   </p>
                 </div>
               </div>
