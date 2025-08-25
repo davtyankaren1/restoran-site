@@ -353,7 +353,7 @@ const BookingSection = () => {
                     {/* Submit Button */}
                     <Button
                       type='submit'
-                      className='w-3/4 sm:w-full bg-orangered hover:bg-orangered/90 text-white font-medium py-2 sm:py-4 text-sm sm:text-lg rounded-xl transition-all duration-300 hover:shadow-xl'
+                      className='w-full bg-orangered hover:bg-orangered/90 text-white font-medium py-2 sm:py-4 text-sm sm:text-lg rounded-xl transition-all duration-300 hover:shadow-xl'
                     >
                       {t('booking.form.submit')}
                     </Button>
