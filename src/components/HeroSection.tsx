@@ -76,39 +76,43 @@ const HeroSection = () => {
           </p>
 
           {/* CTA Buttons */}
-          <div className='flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center w-full sm:w-auto'>
-            <Button
-              size='lg'
-              className='btn-primary text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 font-semibold w-full sm:w-auto hover:scale-100'
-              onClick={() => {
-                const element = document.getElementById("menu");
-                if (element) {
-                  element.scrollIntoView({
-                    behavior: "smooth",
-                    block: "start"
-                  });
-                }
-              }}
-            >
-              See Menu
-            </Button>
+          <div className='flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center'>
+            <div className='w-[180px] sm:w-auto'>
+              <Button
+                size='lg'
+                className='btn-primary text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 font-semibold w-full sm:w-auto hover:scale-100'
+                onClick={() => {
+                  const element = document.getElementById("menu");
+                  if (element) {
+                    element.scrollIntoView({
+                      behavior: "smooth",
+                      block: "start"
+                    });
+                  }
+                }}
+              >
+                See Menu
+              </Button>
+            </div>
 
-            <Button
-              size='lg'
-              variant='outline'
-              className='text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 font-semibold border-white text-black bg-white hover:bg-white hover:text-black w-full sm:w-auto'
-              onClick={() => {
-                const element = document.getElementById("booking");
-                if (element) {
-                  element.scrollIntoView({
-                    behavior: "smooth",
-                    block: "start"
-                  });
-                }
-              }}
-            >
-              Book a Table
-            </Button>
+            <div className='w-[180px] sm:w-auto'>
+              <Button
+                size='lg'
+                variant='outline'
+                className='text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 font-semibold border-white text-black bg-white hover:bg-white hover:text-black w-full sm:w-auto'
+                onClick={() => {
+                  const element = document.getElementById("booking");
+                  if (element) {
+                    element.scrollIntoView({
+                      behavior: "smooth",
+                      block: "start"
+                    });
+                  }
+                }}
+              >
+                Book a Table
+              </Button>
+            </div>
           </div>
         </div>
       </div>

@@ -100,27 +100,27 @@ const ContactSection = () => {
           </div>
 
           <div className='mx-auto'>
-            <div className='grid lg:grid-cols-2 gap-16'>
+            <div className='grid lg:grid-cols-2 gap-10'>
               {/* Contact Information */}
               <div className='space-y-8'>
-                <div className='grid grid-cols-1 sm:grid-cols-2 gap-8'>
+                <div className='grid grid-cols-2 gap-3 sm:gap-8'>
                   {contactInfo.map((info, index) => (
                     <div
                       key={index}
-                      className='flex items-start gap-4 p-6 bg-card rounded-xl border border-orangered/20 transition-all duration-300'
+                      className='flex flex-col sm:flex-row items-center sm:items-start gap-2 sm:gap-4 p-3 sm:p-6 bg-card rounded-xl border border-orangered/20 transition-all duration-300'
 
                       // className='flex items-start gap-4 p-6 bg-card rounded-xl shadow-md transition-all duration-300'
                     >
                       <div className='flex-shrink-0'>
-                        <div className='w-12 h-12 rounded-full bg-orangered/10 flex items-center justify-center'>
-                          <info.icon className='text-orangered' size={24} />
+                        <div className='w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-orangered/10 flex items-center justify-center'>
+                          <info.icon className='text-orangered' size={20} />
                         </div>
                       </div>
-                      <div className='space-y-1'>
-                        <h3 className='text-lg font-medium text-foreground font-montserrat'>
+                      <div className='space-y-1 text-center sm:text-left'>
+                        <h3 className='text-base sm:text-lg font-medium text-foreground font-montserrat'>
                           {info.title}
                         </h3>
-                        <p className='text-sm text-muted-foreground'>
+                        <p className='text-xs sm:text-sm text-muted-foreground'>
                           {info.details}
                         </p>
                       </div>
@@ -130,7 +130,7 @@ const ContactSection = () => {
               </div>
 
               {/* Contact Form (Horizontal Layout) */}
-              <div className='bg-card '>
+              <div className='bg-card'>
                 <form onSubmit={handleSubmit} className='space-y-8'>
                   <div className='flex gap-8'>
                     <div className='flex-1 space-y-2'>

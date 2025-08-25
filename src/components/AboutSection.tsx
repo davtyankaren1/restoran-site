@@ -1,4 +1,4 @@
-import { Info, Heart, Users, Award } from "lucide-react";
+import {  Heart, Users, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const AboutSection = () => {
@@ -121,7 +121,7 @@ const AboutSection = () => {
 
           {/* Right Side - Features */}
           <div>
-            <div className='grid gap-1 md:gap-2' style={{ marginTop: "-70px" }}>
+            <div className='grid gap-4 md:gap-6'>
               {features.map((feature, index) => (
                 <div
                   key={index}
@@ -150,28 +150,28 @@ const AboutSection = () => {
             </div>
 
             {/* Stats */}
-            <div className='grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 pt-6 md:pt-8'>
-              <div className='text-center p-4 md:p-6 rounded-2xl bg-gradient-to-b from-orangered/5 to-transparent mb-4 sm:mb-0'>
-                <div className='text-2xl md:text-3xl font-light text-orangered mb-1 md:mb-2 font-montserrat'>
+            <div className='grid grid-cols-3 gap-2 md:gap-6 pt-6 md:pt-8'>
+              <div className='text-center p-2 md:p-6 rounded-2xl bg-gradient-to-b from-orangered/5 to-transparent'>
+                <div className='text-xl md:text-3xl font-light text-orangered mb-1 md:mb-2 font-montserrat'>
                   15+
                 </div>
-                <div className='text-sm text-muted-foreground font-light'>
+                <div className='text-xs md:text-sm text-muted-foreground font-light'>
                   Years Experience
                 </div>
               </div>
-              <div className='text-center p-4 md:p-6 rounded-2xl bg-gradient-to-b from-orangered/5 to-transparent mb-4 sm:mb-0'>
-                <div className='text-2xl md:text-3xl font-light text-orangered mb-1 md:mb-2 font-montserrat'>
+              <div className='text-center p-2 md:p-6 rounded-2xl bg-gradient-to-b from-orangered/5 to-transparent'>
+                <div className='text-xl md:text-3xl font-light text-orangered mb-1 md:mb-2 font-montserrat'>
                   50+
                 </div>
-                <div className='text-sm text-muted-foreground font-light'>
+                <div className='text-xs md:text-sm text-muted-foreground font-light'>
                   Traditional Recipes
                 </div>
               </div>
-              <div className='text-center p-4 md:p-6 rounded-2xl bg-gradient-to-b from-orangered/5 to-transparent'>
-                <div className='text-2xl md:text-3xl font-light text-orangered mb-1 md:mb-2 font-montserrat'>
+              <div className='text-center p-2 md:p-6 rounded-2xl bg-gradient-to-b from-orangered/5 to-transparent'>
+                <div className='text-xl md:text-3xl font-light text-orangered mb-1 md:mb-2 font-montserrat'>
                   1000+
                 </div>
-                <div className='text-sm text-muted-foreground font-light'>
+                <div className='text-xs md:text-sm text-muted-foreground font-light'>
                   Happy Customers
                 </div>
               </div>

@@ -150,13 +150,13 @@ const BookingSection = () => {
                           selected={selectedDate}
                           onSelect={setSelectedDate}
                           disabled={(date) => date < new Date()}
-                          className='bg-white/95 backdrop-blur-sm rounded-2xl p-2 sm:p-4 md:p-6 border border-white/30 pointer-events-auto w-full'
+                          className='bg-white/95 backdrop-blur-sm rounded-2xl p-1 sm:p-4 md:p-6 border border-white/30 pointer-events-auto w-full'
                           classNames={{
-                            months: "space-y-4 w-full",
-                            month: "space-y-4 w-full",
+                            months: "space-y-2 sm:space-y-4 w-full",
+                            month: "space-y-2 sm:space-y-4 w-full",
                             caption:
                               "flex justify-center pt-1 relative items-center text-foreground mb-4",
-                            caption_label: "text-xl font-medium",
+                            caption_label: "text-sm sm:text-xl font-medium",
                             nav: "space-y-1 flex items-center",
                             nav_button:
                               "h-8 w-8 bg-transparent p-0 opacity-50 hover:opacity-100 text-foreground hover:bg-orangered/10 rounded-md transition-colors",
@@ -165,14 +165,14 @@ const BookingSection = () => {
                             table: "w-full border-collapse",
                             head_row: "flex w-full",
                             head_cell:
-                              "text-muted-foreground rounded-md flex-1 font-normal text-sm py-2",
-                            row: "flex w-full mt-2",
+                              "text-muted-foreground rounded-md flex-1 font-normal text-xs sm:text-sm py-1 sm:py-2",
+                            row: "flex w-full mt-1 sm:mt-2",
                             cell: "flex-1 text-center text-sm p-1 relative focus-within:relative focus-within:z-20",
-                            day: "h-12 w-full p-0 font-normal hover:bg-orangered hover:text-white rounded-md transition-colors text-base flex items-center justify-center",
+                            day: "h-6 sm:h-12 w-full p-0 font-normal hover:bg-orangered hover:text-white rounded-md transition-colors text-xs sm:text-base flex items-center justify-center",
                             day_range_end: "day-range-end",
                             day_selected:
                               "bg-orangered text-white hover:bg-orangered hover:text-white focus:bg-orangered focus:text-white",
-                            day_today: "bg-accent text-accent-foreground",
+                            day_today: "bg-accent text-white",
                             day_outside:
                               "day-outside text-muted-foreground opacity-50",
                             day_disabled: "text-muted-foreground opacity-50",
@@ -352,7 +352,7 @@ const BookingSection = () => {
                     {/* Submit Button */}
                     <Button
                       type='submit'
-                      className='w-full bg-orangered hover:bg-orangered/90 text-white font-medium py-3 sm:py-4 text-base sm:text-lg rounded-xl transition-all duration-300 hover:shadow-xl '
+                      className='w-3/4 sm:w-full bg-orangered hover:bg-orangered/90 text-white font-medium py-2 sm:py-4 text-sm sm:text-lg rounded-xl transition-all duration-300 hover:shadow-xl'
                     >
                       Send Booking Request
                     </Button>

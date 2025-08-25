@@ -15,7 +15,6 @@ import gataImg from "@/assets/menu/gata.jpg";
 import coffeeImg from "@/assets/menu/coffee.jpg";
 
 const MenuSection = () => {
-  const [showFullMenu, setShowFullMenu] = useState(false);
   const [activeCategory, setActiveCategory] = useState(1);
 
   const categories = [
@@ -52,7 +51,7 @@ const MenuSection = () => {
     },
     {
       id: 8,
-      name: "Armenian Hummus",
+      name: "Hummus",
       description: "Creamy chickpea dip topped with paprika and olive oil",
       price: "$9.95",
       image: hummusImg
@@ -145,18 +144,18 @@ const MenuSection = () => {
           <div className='w-full h-px bg-gradient-to-r from-transparent via-orangered/30 to-transparent'></div>
         </div>
       </h3>
-      <div className='space-y-4 md:space-y-6 mx-auto'>
+      <div className='grid grid-cols-2 gap-3 sm:gap-4 md:gap-6 mx-auto'>
         {items.map((item) => (
           <div key={item.id} className='relative group'>
             {/* Glassmorphism Background */}
-            <div className='absolute inset-0 bg-orangered/5 backdrop-blur-md rounded-2xl border border-orangered/20 group-hover:bg-orangered/15 group-hover:border-orangered/30 transition-all duration-300'></div>
+            <div className='absolute inset-0 bg-orangered/5 backdrop-blur-md rounded-2xl border border-orangered/20 group-hover:bg-orangered/5 group-hover:border-orangered/30 transition-all duration-300'></div>
 
             {/* Content */}
-            <div className='relative flex flex-col sm:flex-row items-center sm:items-start sm:justify-between p-5 md:p-8 rounded-2xl  transition-all duration-200'>
-              <div className='flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-6 w-full'>
+            <div className='relative flex flex-col sm:flex-row items-center sm:items-start sm:justify-between p-3 sm:p-5 md:p-6 rounded-2xl transition-all duration-200'>
+              <div className='flex flex-col sm:flex-row items-center sm:items-start gap-2 sm:gap-3 md:gap-4 w-full'>
                 {/* Circular Image with Glow */}
-                <div className='flex-shrink-0 relative mb-3 sm:mb-0'>
-                  <div className='w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden ring-2 ring-orangered/30 group-hover:ring-orangered/50 transition-all duration-300 relative z-10'>
+                <div className='flex-shrink-0 relative mb-2 sm:mb-0'>
+                  <div className='w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-full overflow-hidden ring-2 ring-orangered/30 group-hover:ring-orangered/50 transition-all duration-300 relative z-10'>
                     <img
                       src={item.image}
                       alt={item.name}
@@ -169,19 +168,19 @@ const MenuSection = () => {
 
                 {/* Dish Details */}
                 <div className='flex-grow text-center sm:text-left'>
-                  <h4 className='text-xl sm:text-2xl font-medium text-foreground font-montserrat group-hover:text-orangered transition-colors duration-300 mb-2 sm:mb-3'>
+                  <h4 className='text-sm sm:text-lg md:text-xl font-medium text-foreground font-montserrat group-hover:text-orangered transition-colors duration-300 mb-0.5 sm:mb-1.5 md:mb-2'>
                     {item.name}
                   </h4>
-                  <p className='text-sm sm:text-base text-muted-foreground font-light leading-relaxed'>
+                  <p className='text-xs sm:text-sm md:text-sm text-muted-foreground font-light leading-relaxed line-clamp-2'>
                     {item.description}
                   </p>
                 </div>
               </div>
 
               {/* Price with Enhanced Styling */}
-              <div className='flex-shrink-0 mt-4 sm:mt-0 sm:ml-8'>
-                <div className='bg-orangered/20 backdrop-blur-sm rounded-full px-5 sm:px-6 py-2 sm:py-3 border border-orangered/30 group-hover:bg-orangered/30 group-hover:border-orangered/50 transition-all duration-300'>
-                  <span className='text-xl sm:text-2xl font-semibold text-orangered font-montserrat'>
+              <div className='flex-shrink-0 mt-1 sm:mt-0 sm:ml-4 md:ml-6'>
+                <div className='bg-orangered/10 backdrop-blur-sm rounded-full px-1.5 sm:px-4 md:px-4 py-0.5 sm:py-1.5 md:py-2 border border-orangered/30 group-hover:bg-orangered/30 group-hover:border-orangered/50 transition-all duration-300'>
+                  <span className='text-xs sm:text-base md:text-lg font-semibold text-black font-montserrat'>
                     {item.price}
                   </span>
                 </div>
@@ -250,51 +249,21 @@ const MenuSection = () => {
         {activeCategory === 1 && (
           <MenuCategory
             title='Appetizers'
-            items={
-              showFullMenu
-                ? [...appetizers, ...additionalAppetizers]
-                : appetizers
-            }
+            items={[...appetizers, ...additionalAppetizers]}
           />
         )}
         {activeCategory === 2 && (
           <MenuCategory
             title='Main Courses'
-            items={
-              showFullMenu
-                ? [...mainCourses, ...additionalMainCourses]
-                : mainCourses
-            }
+            items={[...mainCourses, ...additionalMainCourses]}
           />
         )}
         {activeCategory === 3 && (
           <MenuCategory
             title='Desserts'
-            items={
-              showFullMenu ? [...desserts, ...additionalDesserts] : desserts
-            }
+            items={[...desserts, ...additionalDesserts]}
           />
         )}
-
-        {/* Toggle Button */}
-        <div className='text-center mt-8 md:mt-16'>
-          <Button
-            onClick={() => setShowFullMenu(!showFullMenu)}
-            className='btn-primary text-base md:text-lg px-6 md:px-8 py-3 md:py-4 flex items-center gap-2 mx-auto shadow-lg md:shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300'
-          >
-            {showFullMenu ? (
-              <>
-                Show Less
-                <ChevronUp size={18} />
-              </>
-            ) : (
-              <>
-                View Full Menu
-                <ChevronDown size={18} />
-              </>
-            )}
-          </Button>
-        </div>
       </div>
     </section>
   );
