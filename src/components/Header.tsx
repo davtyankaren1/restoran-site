@@ -11,6 +11,7 @@ const Header = () => {
     { name: "Home", href: "#home" },
     { name: "Menu", href: "#menu" },
     { name: "About", href: "#about" },
+    { name: "Gallery", href: "#gallery" },
     { name: "Contact", href: "#contact" },
   ];
 
@@ -20,7 +21,7 @@ const Header = () => {
       setIsScrolled(scrollTop > 50);
 
       // Update active section based on scroll position
-      const sections = ["home", "menu", "about", "contact"];
+      const sections = ["home", "menu", "about", "gallery", "contact"];
       const currentSection = sections.find((section) => {
         const element = document.getElementById(section);
         if (element) {
