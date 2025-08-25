@@ -23,7 +23,7 @@ const LoadingScreen = ({ onLoadingChange }: LoadingScreenProps) => {
       }, 1000); // 1 second for fade out animation
       
       return () => clearTimeout(fadeTimer);
-    }, 1000); // 1 second loading screen display
+    }, 1500); // 1.5 seconds loading screen display
 
     return () => clearTimeout(timer);
   }, [onLoadingChange]);
@@ -198,8 +198,8 @@ const LoadingScreen = ({ onLoadingChange }: LoadingScreenProps) => {
           <div className="w-64 sm:w-80 mt-2">
             <div className="h-1 bg-white/20 rounded-full overflow-hidden">
               <div 
-                className="h-full bg-white animate-[loading_1s_ease-in-out]" 
-                style={{ animation: 'loading 1s ease-in-out forwards' }}
+                className="h-full bg-white animate-[loading_1.5s_ease-in-out]" 
+                style={{ animation: 'loading 1.5s ease-in-out forwards' }}
               />
             </div>
           </div>
