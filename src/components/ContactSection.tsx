@@ -22,16 +22,16 @@ const ContactSection = () => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) {
       toast({
-        title: "Missing Information",
-        description: "Please fill in all fields.",
+        title: "Información Faltante",
+        description: "Por favor complete todos los campos.",
         variant: "destructive"
       });
       return;
     }
 
     toast({
-      title: "Message Sent!",
-      description: "We'll get back to you within 24 hours."
+      title: "Mensaje Enviado!",
+      description: "Le responderemos dentro de las próximas 24 horas."
     });
 
     // Reset form
@@ -45,18 +45,18 @@ const ContactSection = () => {
   const contactInfo = [
     {
       icon: Phone,
-      title: "Call Us",
+      title: "Llámenos",
       details: "+1 (234) 567-8900"
     },
     {
       icon: Mail,
-      title: "Email Us",
+      title: "Envíenos un Correo",
       details: "info@pigeonarmenian.com"
     },
     {
       icon: MapPin,
-      title: "Visit Us",
-      details: "123 Armenian Street, Downtown District"
+      title: "Visítenos",
+      details: "123 Calle Armenia, Distrito Centro"
     },
     {
       icon: Phone,
@@ -86,16 +86,16 @@ const ContactSection = () => {
               <div className='w-6 sm:w-8 md:w-12 h-0.5 bg-border'></div>
               <img
                 src='/lovable-uploads/754e1eea-9a30-4b0b-ba6a-0c42f1f3a3f0.png'
-                alt='Armenian Restaurant Logo'
+                alt='Logo del Restaurante Armenio'
                 className='w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 object-contain hover:scale-110 transition-transform duration-300'
               />
               <div className='w-6 sm:w-8 md:w-12 h-0.5 bg-border'></div>
             </div>
             <h2 className='text-2xl sm:text-3xl md:text-5xl font-light text-foreground mb-2 sm:mb-3 md:mb-6 font-montserrat'>
-              Contact
+              Contacto
             </h2>
             <p className='text-sm sm:text-base md:text-xl text-muted-foreground max-w-2xl mx-auto font-light leading-relaxed px-4 md:px-0'>
-              Get in touch with us
+              Póngase en contacto con nosotros
             </p>
           </div>
 
@@ -138,7 +138,7 @@ const ContactSection = () => {
                         htmlFor='contact-name'
                         className='text-foreground font-light font-montserrat'
                       >
-                        Name
+                        Nombre
                       </Label>
                       <Input
                         id='contact-name'
@@ -147,7 +147,7 @@ const ContactSection = () => {
                           handleInputChange("name", e.target.value)
                         }
                         className='h-12 border-border focus:border-orangered focus:ring-orangered/20'
-                        placeholder='Your name'
+                        placeholder='Su nombre'
                         required
                       />
                     </div>
@@ -157,7 +157,7 @@ const ContactSection = () => {
                         htmlFor='contact-email'
                         className='text-foreground font-light font-montserrat'
                       >
-                        Email
+                        Correo Electrónico
                       </Label>
                       <Input
                         id='contact-email'
@@ -167,7 +167,7 @@ const ContactSection = () => {
                           handleInputChange("email", e.target.value)
                         }
                         className='h-12 border-border focus:border-orangered focus:ring-orangered/20'
-                        placeholder='your@email.com'
+                        placeholder='su@correo.com'
                         required
                       />
                     </div>
@@ -178,7 +178,7 @@ const ContactSection = () => {
                       htmlFor='contact-message'
                       className='text-foreground font-light font-montserrat'
                     >
-                      Message
+                      Mensaje
                     </Label>
                     <Textarea
                       id='contact-message'
@@ -187,7 +187,7 @@ const ContactSection = () => {
                         handleInputChange("message", e.target.value)
                       }
                       className='min-h-40 border-border focus:border-orangered focus:ring-orangered/20 resize-none'
-                      placeholder='Your message...'
+                      placeholder='Su mensaje...'
                       required
                     />
                   </div>
@@ -197,7 +197,7 @@ const ContactSection = () => {
                     className='w-full bg-orangered hover:bg-orangered/90 text-white font-medium py-3 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 font-montserrat'
                   >
                     <Send size={18} />
-                    Send Message
+                    Enviar Mensaje
                   </Button>
                 </form>
               </div>

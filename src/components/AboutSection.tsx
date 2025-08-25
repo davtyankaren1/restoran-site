@@ -5,21 +5,21 @@ const AboutSection = () => {
   const features = [
     {
       icon: Heart,
-      title: "Passion for Authenticity",
+      title: "Pasión por la Autenticidad",
       description:
-        "Every dish is crafted with love using traditional Armenian recipes passed down through generations."
+        "Cada plato está elaborado con amor utilizando recetas armenias tradicionales transmitidas de generación en generación."
     },
     {
       icon: Users,
-      title: "Family Atmosphere",
+      title: "Ambiente Familiar",
       description:
-        "We create a warm, welcoming environment where every guest feels like part of our Armenian family."
+        "Creamos un ambiente cálido y acogedor donde cada invitado se siente como parte de nuestra familia armenia."
     },
     {
       icon: Award,
-      title: "Premium Quality",
+      title: "Calidad Premium",
       description:
-        "We source only the finest ingredients to ensure every meal exceeds your expectations."
+        "Utilizamos solo los mejores ingredientes para garantizar que cada comida supere sus expectativas."
     }
   ];
 
@@ -39,11 +39,11 @@ const AboutSection = () => {
         {/* Section Header */}
         <div className='text-center mb-6 md:mb-12'>
           <h2 className='text-3xl md:text-5xl font-light text-foreground mb-3 md:mb-6 font-montserrat'>
-            About Our Story
+            Nuestra Historia
           </h2>
           <p className='text-base md:text-xl text-muted-foreground max-w-2xl mx-auto font-light leading-relaxed px-4 md:px-0'>
-            A journey through Armenian heritage, bringing authentic flavors and
-            warm hospitality to your table
+            Un viaje a través de la herencia armenia, llevando sabores auténticos y
+            cálida hospitalidad a su mesa
           </p>
         </div>
 
@@ -57,7 +57,7 @@ const AboutSection = () => {
               <div className='relative bg-card/50 rounded-3xl p-8 md:p-12 border border-orangered/10 flex items-center justify-center'>
                 <img
                   src='/lovable-uploads/754e1eea-9a30-4b0b-ba6a-0c42f1f3a3f0.png'
-                  alt='Armenian Restaurant Logo'
+                  alt='Logo del Restaurante Armenio'
                   className='w-36 h-36 md:w-48 md:h-48 object-contain hover:scale-105 transition-transform duration-300'
                 />
               </div>
@@ -98,7 +98,7 @@ const AboutSection = () => {
                     }
                   }}
                 >
-                  Discover Our Menu
+                  Descubrir Nuestro Menú
                 </Button>
                 <Button
                   variant='outline'
@@ -113,7 +113,7 @@ const AboutSection = () => {
                     }
                   }}
                 >
-                  Book Your Table
+                  Reservar Su Mesa
                 </Button>
               </div>
             </div>
@@ -156,7 +156,7 @@ const AboutSection = () => {
                   15+
                 </div>
                 <div className='text-xs md:text-sm text-muted-foreground font-light'>
-                  Years Experience
+                  Años de Experiencia
                 </div>
               </div>
               <div className='text-center p-2 md:p-6 rounded-2xl bg-gradient-to-b from-orangered/5 to-transparent'>
@@ -164,7 +164,7 @@ const AboutSection = () => {
                   50+
                 </div>
                 <div className='text-xs md:text-sm text-muted-foreground font-light'>
-                  Traditional Recipes
+                  Recetas Tradicionales
                 </div>
               </div>
               <div className='text-center p-2 md:p-6 rounded-2xl bg-gradient-to-b from-orangered/5 to-transparent'>
@@ -172,7 +172,7 @@ const AboutSection = () => {
                   1000+
                 </div>
                 <div className='text-xs md:text-sm text-muted-foreground font-light'>
-                  Happy Customers
+                  Clientes Satisfechos
                 </div>
               </div>
             </div>

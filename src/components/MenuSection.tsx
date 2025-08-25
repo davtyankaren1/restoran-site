@@ -18,9 +18,9 @@ const MenuSection = () => {
   const [activeCategory, setActiveCategory] = useState(1);
 
   const categories = [
-    { id: 1, name: "Appetizers" },
-    { id: 2, name: "Main Courses" },
-    { id: 3, name: "Desserts" }
+    { id: 1, name: "Entrantes" },
+    { id: 2, name: "Platos Principales" },
+    { id: 3, name: "Postres" }
   ];
 
   const appetizers = [
@@ -28,14 +28,14 @@ const MenuSection = () => {
       id: 1,
       name: "Dolma",
       description:
-        "Traditional stuffed grape leaves with rice, herbs, and spices",
+        "Hojas de parra rellenas tradicionales con arroz, hierbas y especias",
       price: "$12.95",
       image: dolmaImg
     },
     {
       id: 2,
       name: "Fresh Lavash",
-      description: "Warm traditional Armenian flatbread served with herbs",
+      description: "Pan plano armenio tradicional caliente servido con hierbas",
       price: "$8.95",
       image: lavashImg
     }
@@ -45,14 +45,14 @@ const MenuSection = () => {
     {
       id: 7,
       name: "Baba Ganoush",
-      description: "Smoky eggplant dip with tahini, garlic, and olive oil",
+      description: "Dip de berenjena ahumada con tahini, ajo y aceite de oliva",
       price: "$10.95",
       image: babaGanoushImg
     },
     {
       id: 8,
       name: "Hummus",
-      description: "Creamy chickpea dip topped with paprika and olive oil",
+      description: "Dip cremoso de garbanzos cubierto con pimentón y aceite de oliva",
       price: "$9.95",
       image: hummusImg
     }
@@ -62,14 +62,14 @@ const MenuSection = () => {
     {
       id: 3,
       name: "Armenian Kebab",
-      description: "Grilled lamb and beef skewers with aromatic spices",
+      description: "Brochetas de cordero y ternera a la parrilla con especias aromáticas",
       price: "$24.95",
       image: kebabImg
     },
     {
       id: 4,
       name: "Khorovats",
-      description: "Mixed grill with vegetables and marinated meats",
+      description: "Parrillada mixta con verduras y carnes marinadas",
       price: "$28.95",
       image: khorovatsImg
     },
@@ -77,7 +77,7 @@ const MenuSection = () => {
       id: 5,
       name: "Manti",
       description:
-        "Steamed dumplings filled with seasoned meat, served with yogurt",
+        "Empanadillas al vapor rellenas de carne sazonada, servidas con yogur",
       price: "$22.95",
       image: mantiImg
     }
@@ -88,14 +88,14 @@ const MenuSection = () => {
       id: 9,
       name: "Lahmacun",
       description:
-        "Thin crispy flatbread topped with spiced ground meat and vegetables",
+        "Pan plano fino y crujiente cubierto con carne picada especiada y verduras",
       price: "$18.95",
       image: lahmacunImg
     },
     {
       id: 10,
       name: "Armenian Pilaf",
-      description: "Fragrant rice cooked with vermicelli and butter",
+      description: "Arroz fragante cocinado con fideos y mantequilla",
       price: "$14.95",
       image: pilafImg
     }
@@ -105,7 +105,7 @@ const MenuSection = () => {
     {
       id: 6,
       name: "Armenian Baklava",
-      description: "Layers of phyllo pastry with nuts and honey syrup",
+      description: "Capas de masa filo con frutos secos y almíbar de miel",
       price: "$9.95",
       image: baklavaImg
     }
@@ -115,14 +115,14 @@ const MenuSection = () => {
     {
       id: 11,
       name: "Gata",
-      description: "Traditional Armenian sweet bread with buttery layers",
+      description: "Pan dulce armenio tradicional con capas de mantequilla",
       price: "$8.95",
       image: gataImg
     },
     {
       id: 12,
       name: "Armenian Coffee",
-      description: "Rich traditional coffee served with Armenian delight",
+      description: "Café tradicional intenso servido con delicias armenias",
       price: "$6.95",
       image: coffeeImg
     }
@@ -212,7 +212,7 @@ const MenuSection = () => {
             <div className='relative'>
               <img
                 src='/lovable-uploads/754e1eea-9a30-4b0b-ba6a-0c42f1f3a3f0.png'
-                alt='Armenian Restaurant Logo'
+                alt='Logo del Restaurante Armenio'
                 className='w-16 h-16 md:w-20 md:h-20 object-contain hover:scale-110 transition-transform duration-300'
               />
               <div className='absolute inset-0 bg-orangered/20 rounded-full blur-2xl'></div>
@@ -220,11 +220,11 @@ const MenuSection = () => {
             <div className='w-8 md:w-12 h-0.5 bg-orangered'></div>
           </div>
           <h2 className='text-3xl md:text-5xl font-light text-foreground mb-3 md:mb-6 font-montserrat'>
-            Our Menu
+            Nuestro Menú
           </h2>
           <p className='text-base md:text-xl text-muted-foreground max-w-2xl mx-auto font-light leading-relaxed px-4 md:px-0'>
-            Discover authentic Armenian flavors crafted with traditional recipes
-            and the finest ingredients
+            Descubra auténticos sabores armenios elaborados con recetas tradicionales
+            y los mejores ingredientes
           </p>
         </div>
 
@@ -248,19 +248,19 @@ const MenuSection = () => {
         {/* Menu Items */}
         {activeCategory === 1 && (
           <MenuCategory
-            title='Appetizers'
+            title='Entrantes'
             items={[...appetizers, ...additionalAppetizers]}
           />
         )}
         {activeCategory === 2 && (
           <MenuCategory
-            title='Main Courses'
+            title='Platos Principales'
             items={[...mainCourses, ...additionalMainCourses]}
           />
         )}
         {activeCategory === 3 && (
           <MenuCategory
-            title='Desserts'
+            title='Postres'
             items={[...desserts, ...additionalDesserts]}
           />
         )}

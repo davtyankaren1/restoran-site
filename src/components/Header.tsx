@@ -8,11 +8,11 @@ const Header = () => {
   const [activeSection, setActiveSection] = useState("home");
 
   const navItems = [
-    { name: "Home", href: "#home" },
-    { name: "Menu", href: "#menu" },
-    { name: "About", href: "#about" },
-    { name: "Gallery", href: "#gallery" },
-    { name: "Contact", href: "#contact" },
+    { name: "Inicio", href: "#home" },
+    { name: "Menú", href: "#menu" },
+    { name: "Nosotros", href: "#about" },
+    { name: "Galería", href: "#gallery" },
+    { name: "Contacto", href: "#contact" },
   ];
 
   useEffect(() => {
@@ -71,7 +71,7 @@ const Header = () => {
             />
             <div>
               <h1 className="text-sm md:text-xl text-foreground font-montserrat">
-                Pigeon Armenian Restaurante
+                Restaurante Armenio Pigeon
               </h1>
             </div>
           </div>
@@ -107,7 +107,7 @@ const Header = () => {
                 }
               }}
             >
-              Book a Table
+              Reservar Mesa
             </Button>
 
             {/* Mobile Menu Button */}
@@ -179,13 +179,13 @@ const Header = () => {
                   }
                 }}
               >
-                Book a Table
+                Reservar Mesa
               </Button>
             </div>
             
             {/* Phone Number */}
             <div className="text-center mb-12 border-t border-gray-100">
-              <p className="text-muted-foreground text-sm">Call us</p>
+              <p className="text-muted-foreground text-sm">Llámanos</p>
               <a href="tel:+12345678900" className="text-orangered font-medium">+1 (234) 567-8900</a>
             </div>
             

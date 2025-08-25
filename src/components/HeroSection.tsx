@@ -8,9 +8,9 @@ const HeroSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const slides = [
-    { image: hero1, alt: "Armenian Restaurant Interior" },
-    { image: hero2, alt: "Traditional Armenian Cuisine" },
-    { image: hero3, alt: "Armenian Chef Cooking" }
+    { image: hero1, alt: "Interior del Restaurante Armenio" },
+    { image: hero2, alt: "Cocina Tradicional Armenia" },
+    { image: hero3, alt: "Chef Armenio Cocinando" }
   ];
 
   useEffect(() => {
@@ -71,8 +71,8 @@ const HeroSection = () => {
             Bienvenidos a nuestro pequeño rincón armenio
           </h1>
           <p className='text-base sm:text-xl md:text-2xl mb-6 sm:mb-8 md:mb-12 font-light max-w-3xl mx-auto leading-relaxed px-2'>
-            Experience the authentic flavors of Armenia in an elegant atmosphere
-            where tradition meets modern sophistication.
+            Experimente los auténticos sabores de Armenia en un ambiente elegante
+            donde la tradición se encuentra con la sofisticación moderna.
           </p>
 
           {/* CTA Buttons */}
@@ -91,7 +91,7 @@ const HeroSection = () => {
                   }
                 }}
               >
-                See Menu
+                Ver Menú
               </Button>
             </div>
 
@@ -110,7 +110,7 @@ const HeroSection = () => {
                   }
                 }}
               >
-                Book a Table
+                Reservar Mesa
               </Button>
             </div>
           </div>

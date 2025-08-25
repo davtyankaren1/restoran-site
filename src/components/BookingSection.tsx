@@ -51,13 +51,13 @@ const BookingSection = () => {
   ];
 
   const guestOptions = [
-    "1 Guest",
-    "2 Guests",
-    "3 Guests",
-    "4 Guests",
-    "5 Guests",
-    "6 Guests",
-    "7+ Guests"
+    "1 Invitado",
+    "2 Invitados",
+    "3 Invitados",
+    "4 Invitados",
+    "5 Invitados",
+    "6 Invitados",
+    "7+ Invitados"
   ];
 
   const handleInputChange = (field: string, value: string) => {
@@ -74,16 +74,16 @@ const BookingSection = () => {
       !formData.guests
     ) {
       toast({
-        title: "Missing Information",
-        description: "Please fill in all required fields.",
+        title: "Información Faltante",
+        description: "Por favor complete todos los campos requeridos.",
         variant: "destructive"
       });
       return;
     }
 
     toast({
-      title: "Booking Request Sent!",
-      description: "We'll confirm your reservation within 24 hours."
+      title: "Solicitud de Reserva Enviada!",
+      description: "Confirmaremos su reserva dentro de las próximas 24 horas."
     });
 
     // Reset form
@@ -106,7 +106,7 @@ const BookingSection = () => {
           <div className='absolute inset-0'>
             <img
               src={hero2}
-              alt='Restaurant Interior'
+              alt='Interior del Restaurante'
               className='w-full h-full object-cover'
             />
 
@@ -120,17 +120,17 @@ const BookingSection = () => {
                 <div className='w-8 sm:w-12 h-0.5 bg-white/80'></div>
                 <img
                   src='/lovable-uploads/754e1eea-9a30-4b0b-ba6a-0c42f1f3a3f0.png'
-                  alt='Armenian Restaurant Logo'
+                  alt='Logo del Restaurante Armenio'
                   className='w-12 h-12 sm:w-16 sm:h-16 object-contain'
                 />
                 <div className='w-8 sm:w-12 h-0.5 bg-white/80'></div>
               </div>
               <h2 className='text-3xl sm:text-4xl md:text-5xl font-light text-white mb-4 sm:mb-6 font-montserrat'>
-                Book Your Table
+                Reserve Su Mesa
               </h2>
               <p className='text-base sm:text-lg md:text-xl text-white/90 max-w-2xl mx-auto font-light leading-relaxed px-2'>
-                Reserve your perfect dining experience with authentic Armenian
-                flavors
+                Reserve su perfecta experiencia gastronómica con auténticos
+                sabores armenios
               </p>
             </div>
 
@@ -141,7 +141,7 @@ const BookingSection = () => {
                   <div className='bg-white/10 backdrop-blur-md rounded-3xl p-4 sm:p-6 md:p-8 border border-white/20 flex-1 flex flex-col'>
                     <h3 className='text-xl sm:text-2xl font-light text-white mb-4 sm:mb-6 font-montserrat flex items-center gap-2 sm:gap-3'>
                       <CalendarIcon className='text-orangered' size={24} />
-                      Select Date
+                      Seleccionar Fecha
                     </h3>
                     <div className='flex-1 flex items-center justify-center'>
                       <div className='w-full max-w-none'>
@@ -190,7 +190,7 @@ const BookingSection = () => {
                     <div className='bg-white/10 backdrop-blur-md rounded-2xl p-4 sm:p-6 border border-white/20 mt-4 sm:mt-6'>
                       <div className='text-center'>
                         <p className='text-white/80 mb-1 sm:mb-2 text-sm sm:text-base'>
-                          Selected Date
+                          Fecha Seleccionada
                         </p>
                         <p className='text-lg sm:text-xl md:text-2xl font-light text-white font-montserrat'>
                           {format(selectedDate, "EEE, MMM do, yyyy")}
@@ -204,7 +204,7 @@ const BookingSection = () => {
                 <div className='bg-white/10 backdrop-blur-md rounded-3xl p-4 sm:p-6 md:p-8 border border-white/20'>
                   <h3 className='text-xl sm:text-2xl font-light text-white mb-4 sm:mb-6 md:mb-8 font-montserrat flex items-center gap-2 sm:gap-3'>
                     <Send className='text-orangered' size={24} />
-                    Reservation Details
+                    Detalles de la Reserva
                   </h3>
 
                   <form
@@ -218,7 +218,7 @@ const BookingSection = () => {
                           htmlFor='name'
                           className='text-white/90 font-light'
                         >
-                          Full Name *
+                          Nombre Completo *
                         </Label>
                         <Input
                           id='name'
@@ -227,7 +227,7 @@ const BookingSection = () => {
                             handleInputChange("name", e.target.value)
                           }
                           className='bg-white/20 border-white/30 text-white placeholder:text-white/60 focus:border-orangered focus:ring-orangered/20 backdrop-blur-sm'
-                          placeholder='Your full name'
+                          placeholder='Su nombre completo'
                           required
                         />
                       </div>
@@ -236,7 +236,7 @@ const BookingSection = () => {
                           htmlFor='email'
                           className='text-white/90 font-light'
                         >
-                          Email Address *
+                          Correo Electrónico *
                         </Label>
                         <Input
                           id='email'
@@ -246,7 +246,7 @@ const BookingSection = () => {
                             handleInputChange("email", e.target.value)
                           }
                           className='bg-white/20 border-white/30 text-white placeholder:text-white/60 focus:border-orangered focus:ring-orangered/20 backdrop-blur-sm'
-                          placeholder='your@email.com'
+                          placeholder='su@correo.com'
                           required
                         />
                       </div>
@@ -258,7 +258,7 @@ const BookingSection = () => {
                         htmlFor='phone'
                         className='text-white/90 font-light'
                       >
-                        Phone Number
+                        Número de Teléfono
                       </Label>
                       <Input
                         id='phone'
@@ -267,7 +267,7 @@ const BookingSection = () => {
                           handleInputChange("phone", e.target.value)
                         }
                         className='bg-white/20 border-white/30 text-white placeholder:text-white/60 focus:border-orangered focus:ring-orangered/20 backdrop-blur-sm'
-                        placeholder='Your phone number'
+                        placeholder='Su número de teléfono'
                       />
                     </div>
 
@@ -276,7 +276,7 @@ const BookingSection = () => {
                       <div className='space-y-2'>
                         <Label className='text-white/90 font-light flex items-center gap-2'>
                           <Clock size={16} />
-                          Preferred Time *
+                          Hora Preferida *
                         </Label>
                         <Select
                           value={formData.time}
@@ -285,7 +285,7 @@ const BookingSection = () => {
                           }
                         >
                           <SelectTrigger className='bg-white/20 border-white/30 text-white focus:border-orangered focus:ring-orangered/20 backdrop-blur-sm'>
-                            <SelectValue placeholder='Select time' />
+                            <SelectValue placeholder='Seleccionar hora' />
                           </SelectTrigger>
                           <SelectContent className='bg-white/95 backdrop-blur-sm border-white/30'>
                             {timeSlots.map((time) => (
@@ -303,7 +303,7 @@ const BookingSection = () => {
                       <div className='space-y-2'>
                         <Label className='text-white/90 font-light flex items-center gap-2'>
                           <Users size={16} />
-                          Number of Guests *
+                          Número de Invitados *
                         </Label>
                         <Select
                           value={formData.guests}
@@ -312,7 +312,7 @@ const BookingSection = () => {
                           }
                         >
                           <SelectTrigger className='bg-white/20 border-white/30 text-white focus:border-orangered focus:ring-orangered/20 backdrop-blur-sm'>
-                            <SelectValue placeholder='Select guests' />
+                            <SelectValue placeholder='Seleccionar invitados' />
                           </SelectTrigger>
                           <SelectContent className='bg-white/95 backdrop-blur-sm border-white/30'>
                             {guestOptions.map((option) => (
@@ -335,7 +335,7 @@ const BookingSection = () => {
                         htmlFor='message'
                         className='text-white/90 font-light'
                       >
-                        Special Requests
+                        Peticiones Especiales
                       </Label>
                       <Textarea
                         id='message'
@@ -344,7 +344,7 @@ const BookingSection = () => {
                           handleInputChange("message", e.target.value)
                         }
                         className='bg-white/20 border-white/30 text-white placeholder:text-white/60 focus:border-orangered focus:ring-orangered/20 backdrop-blur-sm resize-none'
-                        placeholder='Any special requests or dietary requirements...'
+                        placeholder='Cualquier petición especial o requisito dietético...'
                         rows={4}
                       />
                     </div>
@@ -354,13 +354,13 @@ const BookingSection = () => {
                       type='submit'
                       className='w-3/4 sm:w-full bg-orangered hover:bg-orangered/90 text-white font-medium py-2 sm:py-4 text-sm sm:text-lg rounded-xl transition-all duration-300 hover:shadow-xl'
                     >
-                      Send Booking Request
+                      Enviar Solicitud de Reserva
                     </Button>
                   </form>
 
                   <p className='text-white/70 text-xs sm:text-sm mt-4 sm:mt-6 text-center font-light px-2'>
-                    We'll confirm your reservation within 24 hours via email or
-                    phone
+                    Confirmaremos su reserva dentro de las próximas 24 horas por correo electrónico o
+                    teléfono
                   </p>
                 </div>
               </div>
